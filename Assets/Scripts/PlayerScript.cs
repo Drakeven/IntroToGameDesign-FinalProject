@@ -7,7 +7,7 @@ public class PlayerScript : MonoBehaviour
 
     
     public float speed;
-    private bool canJump;
+    private bool isGrounded;
     public float jumpForce;
     private float moveInput;
     private Rigidbody2D rb;
@@ -30,19 +30,22 @@ public class PlayerScript : MonoBehaviour
     //Fixed update is called a certain amount of times per second and is unrelated to frames
     void FixedUpdate()
     {
+        //Move the player
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
-        if(!facingRight && moveInput < 0)
-        {
-            Flip();
-        }
-        else if(facingRight && moveInput > 0)
-        {
-            Flip();
-        }
 
-        move();
+        //Flip player depending which direction they are moving
+        if(!facingRight && moveInput < 0)
+            Flip();        
+        else if(facingRight && moveInput > 0)
+            Flip();
+
+        //Check if player can jump/wants to jump
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+        }
     }
 
     void move()
@@ -61,7 +64,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //If the player is touching the ground then jump
-        if (Input.GetKey(KeyCode.Space) && canJump)
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
             //transform.position += Vector3.up * jumpForce * Time.deltaTime;
@@ -77,13 +80,13 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Touching Ground");
-        canJump = true;
+        isGrounded = true;
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
         Debug.Log("Not Touching Ground");
-        canJump = false;
+        isGrounded = false;
     }
 
     void Flip()
