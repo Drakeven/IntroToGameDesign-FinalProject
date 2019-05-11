@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public KeyCode leftKey;
+    public KeyCode rightKey;
+    public KeyCode jumpKey;
 
-    
-    public float speed;
-    private bool isGrounded;
-    public float jumpForce;
+    public float speed = 5f;
+    public float jumpForce = 15f;
+
+    public bool isGrounded;
     private float moveInput;
     private Rigidbody2D rb;
 
@@ -17,76 +20,74 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("start");
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //Fixed update is called a certain amount of times per second and is unrelated to frames
     void FixedUpdate()
     {
+        float moveInput = 0;
+        
         //Move the player
-        moveInput = Input.GetAxisRaw("Horizontal");
+        if (Input.GetKey(leftKey))
+        {
+            moveInput = -1;
+        }
+        else if (Input.GetKey(rightKey))
+        {
+            moveInput = 1;
+        }
+        //else
+        //{
+        //    rb.velocity = new Vector2(0 * speed, rb.velocity.y);
+        //}
+
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
 
+
         //Flip player depending which direction they are moving
-        if(!facingRight && moveInput < 0)
-            Flip();        
-        else if(facingRight && moveInput > 0)
+        if (!facingRight && moveInput < 0)
+        {
             Flip();
+        }
+        else if (facingRight && moveInput > 0)
+        {
+            Flip();
+        }
 
         //Check if player can jump/wants to jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKey(jumpKey) && isGrounded)
         {
             rb.velocity = Vector2.up * jumpForce;
         }
     }
 
-    void move()
-    {
-        //Left
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(Vector3.left * speed * Time.deltaTime);
-            //transform.position += Vector3.left * speed * Time.deltaTime;
-        }
-        //Right
-        if (Input.GetKey(KeyCode.D))
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector3.right * speed * Time.deltaTime);
-            //transform.position += Vector3.right * speed * Time.deltaTime;
-        }
-
-        //If the player is touching the ground then jump
-        if (Input.GetKey(KeyCode.Space) && isGrounded)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
-            //transform.position += Vector3.up * jumpForce * Time.deltaTime;
-        }
-        ////Down
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    transform.position += Vector3.down * speed * Time.deltaTime;
-        //}
-
-    }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Touching Ground");
-        isGrounded = true;
+        if (collider.tag != "Player")
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.tag != "Player")
+        {
+            isGrounded = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        Debug.Log("Not Touching Ground");
-        isGrounded = false;
+            isGrounded = false;
     }
 
     void Flip()
