@@ -42,12 +42,12 @@ public class CameraFollow : MonoBehaviour
 
     void Zoom()
     {
-        float newSize = Mathf.Lerp(maxZoom, minZoom, GetGratestDistance() / zoomLimiter);
+        float newSize = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newSize, Time.deltaTime);
     }
 
 
-    float GetGratestDistance()
+    float GetGreatestDistance()
     {
         var bounds = new Bounds(targets[0].position, Vector3.zero);
         for (int i = 0; i < targets.Count; i++)

@@ -41,7 +41,7 @@ public class LevelController : MonoBehaviour
                     rnd = Random.Range(0, players.Length);
                 }
 
-                Debug.Log("player[" + rnd + "] to player[" + i + "]");
+                //Debug.Log("player[" + rnd + "] to player[" + i + "]");
                 Vector3 tempPlayerLocation = players[rnd].transform.position;
                 players[rnd].transform.position = players[i].transform.position;
                 players[i].transform.position = tempPlayerLocation;

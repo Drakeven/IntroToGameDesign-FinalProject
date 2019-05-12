@@ -11,61 +11,36 @@ public class PlayerScript : MonoBehaviour
 
     public float speed = 5f;
     public float jumpForce = 15f;
-    
-
     public bool isGrounded;
-    private float moveInput;
+    private float moveInput = 0;
+
     private Rigidbody2D rb;
-    private bool attack;
     private Animator myAnimator;
 
     private bool facingRight;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        inputAttack();
+        UpdateAnimation();
     }
 
-    //Fixed update is called a certain amount of times per second and is unrelated to frames
-    void FixedUpdate()
+    void UpdateAnimation()
     {
-        float moveInput = 0;
-        
-        
-        //Move the player
-       
-        //else
-        //{
-        //    rb.velocity = new Vector2(0 * speed, rb.velocity.y);
-        //}
-
-        if (!this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
-        {
-            if (Input.GetKey(leftKey))
-            {
-                moveInput = -1;
-            }
-            else if (Input.GetKey(rightKey))
-            {
-                moveInput = 1;
-            }
-            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        }
-
-        
         myAnimator.SetFloat("Speed", Mathf.Abs(moveInput));
 
+        // If the attack button is pressed, play the attack animation
+        if (Input.GetKeyDown(attackKey) && moveInput == 0)
+        {
+            myAnimator.SetTrigger("Attack");
+        }
 
-
-        //Flip player depending which direction they are moving
+        // Flip player depending which direction they are moving
         if (!facingRight && moveInput < 0)
         {
             Flip();
@@ -74,48 +49,46 @@ public class PlayerScript : MonoBehaviour
         {
             Flip();
         }
-
-        //Check if player can jump/wants to jump
-        if (Input.GetKey(jumpKey) && isGrounded)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
-        //These two methods play the attack, but stop it once it plays once. 
-
-        HandleAttacks();
-        resetAttack();
-
-        
     }
 
-    //If the attack button is pressed and therefore is true, this method will play the attack animation
-
- 
-
-    private void HandleAttacks()
+    void Flip()
     {
-        if (attack)
-        {
-            myAnimator.SetTrigger("Attack");
-        }
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 
-    //This method determines if the attack button is being pressed at any one time
-
-
-    private void inputAttack()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(attackKey))
-        {
-            attack = true;
-        }
-
+        Move();
     }
 
-    private void resetAttack()
+    void Move()
     {
-        attack = false;
+        // Move the player
+        //if (!this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        //{
+            if (Input.GetKey(leftKey))
+            {
+                moveInput = -1;
+            }
+            else if (Input.GetKey(rightKey))
+            {
+                moveInput = 1;
+            }
+            else
+            {
+                moveInput = 0;
+            }
+            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+            //Check if player can jump/wants to jump
+            if (Input.GetKey(jumpKey) && isGrounded)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+            }
+        //}
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -136,16 +109,6 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-            isGrounded = false;
+        isGrounded = false;
     }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
-    }
-
-    
 }
