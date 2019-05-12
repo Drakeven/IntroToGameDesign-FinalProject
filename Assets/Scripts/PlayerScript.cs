@@ -101,18 +101,13 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag != "Player")
-        {
-            isGrounded = true;
-        }
+        isGrounded = true;
+        
     }
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.tag != "Player")
-        {
-            isGrounded = true;
-        }
+        isGrounded = true;
     }
 
     void OnTriggerExit2D(Collider2D collider)
