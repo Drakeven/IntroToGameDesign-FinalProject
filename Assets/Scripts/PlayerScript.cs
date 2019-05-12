@@ -38,6 +38,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(attackKey) && moveInput == 0)
         {
             myAnimator.SetTrigger("Attack");
+            PushOtherPlayer();
         }
 
         // Flip player depending which direction they are moving
@@ -89,6 +90,13 @@ public class PlayerScript : MonoBehaviour
                 rb.velocity = Vector2.up * jumpForce;
             }
         //}
+    }
+
+    void PushOtherPlayer()
+    {
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left * transform.localScale.x, distance, layerMask);
+
+        Debug.DrawRay(transform.position, Vector2.right * 2.11f, Color.red, 20f);
     }
 
     void OnTriggerEnter2D(Collider2D collider)

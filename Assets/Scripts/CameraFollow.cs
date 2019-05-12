@@ -19,14 +19,75 @@ public class CameraFollow : MonoBehaviour
 
     private Camera cam;
 
+    private int startTime; // from LevelController
+    private int currentTime; // from LevelController
+
+    LevelController levelController;
+
+
+
+
+    // Transform of the GameObject you want to shake
+    private new Transform transform;
+
+    // Desired duration of the shake effect
+    private float shakeDuration = 0f;
+
+    // A measure of magnitude for the shake. Tweak based on your preference
+    private float shakeMagnitude = 0.04f;
+
+    // A measure of how quickly the shake effect should evaporate
+    private float dampingSpeed = 0.4f;
+
+    // The initial position of the GameObject
+    Vector3 initialPosition;
+
+
+
+
+
     void Start()
     {
+        levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
+        startTime = levelController.startTime;
+        currentTime = levelController.currentTime;
+
         cam = GetComponent<Camera>();
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
         {
             targets.Add(player.transform);
         }
+    }
+
+    void Awake()
+    {
+        if (transform == null)
+        {
+            transform = GetComponent(typeof(Transform)) as Transform;
+        }
+    }
+
+    void Update()
+    {
+        ScreenShake();
+        if (shakeDuration > 0)
+        {
+            transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+
+            shakeDuration -= Time.deltaTime * dampingSpeed;
+        }
+        else
+        {
+            shakeDuration = 0f;
+            transform.localPosition = initialPosition;
+        }
+    }
+
+
+    void OnEnable()
+    {
+        initialPosition = transform.localPosition;
     }
 
     void LateUpdate()
@@ -54,12 +115,12 @@ public class CameraFollow : MonoBehaviour
         {
             bounds.Encapsulate(targets[i].position);
         }
-        
+
         return bounds.size.x;
     }
 
     void Move()
-    { 
+    {
         Vector3 centerPoint = GetCenterPoint();
         Vector3 newPosition = centerPoint + offset;
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
@@ -79,5 +140,14 @@ public class CameraFollow : MonoBehaviour
         }
 
         return bounds.center;
+    }
+
+    void ScreenShake()
+    {
+        currentTime = levelController.currentTime;
+        if (currentTime <= 1)
+        {
+            shakeDuration = 0.1f;
+        }
     }
 }

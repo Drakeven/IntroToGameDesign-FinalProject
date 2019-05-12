@@ -5,8 +5,11 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     public GameObject[] players;
-    public float startDelay = 10f;
-    public float repeatDelay = 10f;
+    public float startDelay = 1f;
+    public float repeatDelay = 1f;
+
+    public int startTime = 10;
+    public int currentTime;
 
     void Start()
     {
@@ -18,6 +21,7 @@ public class LevelController : MonoBehaviour
         //    Debug.Log(player.name);
         //}
 
+        currentTime = startTime;
         Time.timeScale = 1;
 
         InvokeRepeating("SwapPlayers", startDelay, repeatDelay);
@@ -25,27 +29,36 @@ public class LevelController : MonoBehaviour
 
     void SwapPlayers()
     {
-        //Debug.Log("SWAP!");
+        currentTime--;
 
-        if (players != null && players.Length > 1)
+        if (currentTime == 0)
         {
-            for (int i = 0; i < players.Length; i++)
+            //Debug.Log("SWAP!");
+            if (players != null && players.Length > 1)
             {
-                // todo: make players not end up in the same position after all the swaps take place
-                // currently, it can swap from 1 -> 2, then 2 -> 3, then 3 -> 1
-                // this looks like you haven't moved at all, but you just moved back to your original position
-
-                int rnd = Random.Range(0, players.Length);
-                while (rnd == i) 
+                for (int i = 0; i < players.Length; i++)
                 {
-                    rnd = Random.Range(0, players.Length);
-                }
+                    // todo: make players not end up in the same position after all the swaps take place
+                    // currently, it can swap from 1 -> 2, then 2 -> 3, then 3 -> 1
+                    // this looks like you haven't moved at all, but you just moved back to your original position
 
-                //Debug.Log("player[" + rnd + "] to player[" + i + "]");
-                Vector3 tempPlayerLocation = players[rnd].transform.position;
-                players[rnd].transform.position = players[i].transform.position;
-                players[i].transform.position = tempPlayerLocation;
+                    int rnd = Random.Range(0, players.Length);
+                    while (rnd == i)
+                    {
+                        rnd = Random.Range(0, players.Length);
+                    }
+
+                    //Debug.Log("player[" + rnd + "] to player[" + i + "]");
+                    Vector3 tempPlayerLocation = players[rnd].transform.position;
+                    players[rnd].transform.position = players[i].transform.position;
+                    players[i].transform.position = tempPlayerLocation;
+                }
             }
+        }
+
+        if (currentTime <= 0)
+        {
+            currentTime = startTime;
         }
     }
 }
