@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Intro to Game Design - Group 42
   productName: Intro to Game Design Final Project
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}

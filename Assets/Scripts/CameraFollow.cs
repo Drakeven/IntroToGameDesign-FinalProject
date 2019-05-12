@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
@@ -21,6 +22,11 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         cam = GetComponent<Camera>();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            targets.Add(player.transform);
+        }
     }
 
     void LateUpdate()
