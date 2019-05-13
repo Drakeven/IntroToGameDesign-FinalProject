@@ -11,6 +11,8 @@ public class LevelController : MonoBehaviour
     public int startTime = 10;
     public int currentTime;
 
+    AudioSource myAudio;
+
     void Start()
     {
         //Debug.Log("Start!");
@@ -24,6 +26,9 @@ public class LevelController : MonoBehaviour
         currentTime = startTime;
         Time.timeScale = 1;
 
+        myAudio = GetComponent<AudioSource>();
+        myAudio.clip = Resources.Load<AudioClip>("Audio/teleport3");
+
         InvokeRepeating("SwapPlayers", startDelay, repeatDelay);
     }
 
@@ -31,8 +36,14 @@ public class LevelController : MonoBehaviour
     {
         currentTime--;
 
+        if (currentTime == 1)
+        {
+            myAudio.Play();
+        }
+
         if (currentTime == 0)
         {
+
             //Debug.Log("SWAP!");
             if (players != null && players.Length > 1)
             {
