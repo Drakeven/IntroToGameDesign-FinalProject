@@ -15,14 +15,14 @@ TagManager:
   - UI
   - 
   - 
-  - Background
+  - 
   - Platforms
+  - Background
+  - Player
   - 
   - 
-  - Player1
-  - Player2
-  - Player3
-  - Player4
+  - 
+  - 
   - 
   - 
   - 
@@ -42,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1446949479
+    locked: 0
+  - name: Platforms
+    uniqueID: 1901420297
+    locked: 0
+  - name: Trap
+    uniqueID: 2139543919
+    locked: 0
+  - name: Player
+    uniqueID: 1573537783
     locked: 0
