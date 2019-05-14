@@ -99,15 +99,25 @@ public class PlayerScript : MonoBehaviour
         Debug.DrawRay(transform.position, Vector2.right * 2.11f, Color.red, 20f);
     }
 
+    void AddScore()
+    {
+        Debug.Log("I'm gaining points!");
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
-        isGrounded = true;
-        
+        if (collider.tag != "Objective")
+        {
+            isGrounded = true;
+        }
     }
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        isGrounded = true;
+        if (collider.tag != "Objective")
+        {
+            isGrounded = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collider)
