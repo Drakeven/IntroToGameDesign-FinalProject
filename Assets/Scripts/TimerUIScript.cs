@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UIScript : MonoBehaviour
+public class TimerUIScript : MonoBehaviour
 {
     public float startDelay = 0f;
     public float repeatDelay = 1f;

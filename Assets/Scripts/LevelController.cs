@@ -5,6 +5,9 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     public GameObject[] players;
+    public int[] playerScores;
+    public GameObject[] playerUIScoreres;
+
     public float startDelay = 1f;
     public float repeatDelay = 1f;
 
@@ -18,10 +21,12 @@ public class LevelController : MonoBehaviour
         //Debug.Log("Start!");
 
         players = GameObject.FindGameObjectsWithTag("Player");
-        //foreach (GameObject player in players)
-        //{
-        //    Debug.Log(player.name);
-        //}
+        playerUIScoreres = GameObject.FindGameObjectsWithTag("Scorer UI");
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            playerUIScoreres[i].SendMessage("SetName", players[i].name);
+        }
 
         currentTime = startTime;
         Time.timeScale = 1;
@@ -30,6 +35,17 @@ public class LevelController : MonoBehaviour
         myAudio.clip = Resources.Load<AudioClip>("Audio/teleport3");
 
         InvokeRepeating("SwapPlayers", startDelay, repeatDelay);
+    }
+
+    void IncreaseScore(string playerName)
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].name == playerName)
+            {
+                playerUIScoreres[i].SendMessage("IncrementScore");
+            }
+        }
     }
 
     void SwapPlayers()
@@ -43,9 +59,15 @@ public class LevelController : MonoBehaviour
 
         if (currentTime == 0)
         {
-
             //Debug.Log("SWAP!");
-            if (players != null && players.Length > 1)
+
+            if (players.Length == 2)
+            {
+                Vector3 tempPlayerLocation = players[0].transform.position;
+                players[0].transform.position = players[1].transform.position;
+                players[1].transform.position = tempPlayerLocation;
+            }
+            else if (players != null && players.Length > 1)
             {
                 for (int i = 0; i < players.Length; i++)
                 {

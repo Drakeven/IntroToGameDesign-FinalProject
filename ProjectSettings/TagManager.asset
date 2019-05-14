@@ -7,6 +7,9 @@ TagManager:
   - Background
   - Platforms
   - Objective
+  - UI
+  - Scorer UI
+  - Timer UI
   layers:
   - Default
   - TransparentFX

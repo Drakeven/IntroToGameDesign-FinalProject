@@ -19,10 +19,20 @@ public class PlayerScript : MonoBehaviour
 
     private bool facingRight;
 
+    public string playerName;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+
+        this.name = playerName;
+    }
+
+    void SetName(string newName)
+    {
+        playerName = newName;
+        this.name = playerName;
     }
 
     void Update()

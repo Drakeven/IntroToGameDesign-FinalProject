@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ObjectiveScorer : MonoBehaviour
 {
+    private LevelController levelController;
+
     void Start()
     {
-        
+        levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
     }
     
     void Update()
@@ -16,11 +18,7 @@ public class ObjectiveScorer : MonoBehaviour
 
     void AddScore(string scorerName)
     {
-        //this debug log creates LOTS of lag :/
-        //Debug.Log(scorerName + " is in the objective zone!");
-
-        // we need to get the player gameobject, and add score to it
-        // from there, we need to display that score in the UI somehow
+        levelController.SendMessage("IncreaseScore", scorerName);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
