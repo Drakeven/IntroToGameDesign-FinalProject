@@ -81,7 +81,7 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        //Move();
     }
 
     public void Move()
@@ -112,8 +112,14 @@ public class PlayerScript : MonoBehaviour
 
     void PushOtherPlayer()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left * transform.localScale.x, distance, layerMask);
-        Debug.DrawRay(transform.position, Vector2.right * 2.11f, Color.red, 20f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 2.11f);
+        if (hit.collider != null && hit.collider.name != this.name)
+        {
+            Debug.Log(hit.collider.name);
+            hit.rigidbody.velocity = new Vector2(7f, 2f); // this breaks because the velocity is set in the Move() method. maybe change move to add to velocity?
+            // maaaybe: // hit.rigidbody.AddForceAtPosition(transform.forward * 300000f, hit.point);
+        }
+        Debug.DrawRay(transform.position, Vector2.right * 2.11f, Color.red, 10f);
     }
 
     public void SetName(string newName)

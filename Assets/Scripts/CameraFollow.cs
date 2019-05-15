@@ -58,7 +58,7 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         // apply screenshake on the camera
-        //ScreenShake();
+        //ScreenShake(); //disabled because it breaks camera movement
     }
 
     void OnEnable()
