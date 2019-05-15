@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpForce = 15f;
     public bool isGrounded;
     private float moveInput = 0;
+    private int score = 0;
 
     private Rigidbody2D rb;
     private Animator myAnimator;
@@ -35,7 +36,12 @@ public class PlayerScript : MonoBehaviour
         this.name = playerName;
     }
 
-    void Update()
+    public int getScore()
+    {
+        return score;
+    }
+
+     void Update()
     {
         UpdateAnimation();
     }
@@ -109,10 +115,21 @@ public class PlayerScript : MonoBehaviour
         Debug.DrawRay(transform.position, Vector2.right * 2.11f, Color.red, 20f);
     }
 
-    void AddScore()
-    {
-        Debug.Log("I'm gaining points!");
-    }
+    //refered to by the ScorerUIScript, will add to the players score while it adds to the UI score. 
+    //I'd like to do this better by shifting the handling of the score over to the Level controler
+   
+    //~Luca
+
+   //I ended up scrapping this because I need to get ready for Uni. I tried implimenting it into the UI score, but it needs a way
+   //to know WHICH player it's refrencing. 
+   //Sorry :(
+
+   // public void SetScore(int addedScore)
+   // {
+    //    score = addedScore;
+    //}
+
+    
 
     void OnTriggerEnter2D(Collider2D collider)
     {

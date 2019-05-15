@@ -37,13 +37,20 @@ public class LevelController : MonoBehaviour
         InvokeRepeating("SwapPlayers", startDelay, repeatDelay);
     }
 
+    void Update()
+    {
+
+    }
+
     void IncreaseScore(string playerName)
     {
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i].name == playerName)
             {
+
                 playerUIScoreres[i].SendMessage("IncrementScore");
+                
             }
         }
     }

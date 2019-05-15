@@ -8,7 +8,7 @@ public class ScorerUIScript : MonoBehaviour
     private TextMeshProUGUI scorerText;
 
     private LevelController levelController;
-
+    // private PlayerScript playerScorring;
     public int startingScore = 0;
     private int score; // from LevelController
     private string playerName; // from LevelController
@@ -18,13 +18,17 @@ public class ScorerUIScript : MonoBehaviour
         scorerText = GetComponent<TextMeshProUGUI>();
         levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
 
-        score = startingScore;
+
+        SetScore(startingScore);
+        //score = playerScorring.getScore();
     }
 
     void Update()
     {
         scorerText.text = playerName + ": " + score.ToString();
+        //playerScorring.SetScore(score);
     }
+
 
     void SetName(string newPlayerName)
     {
@@ -34,7 +38,14 @@ public class ScorerUIScript : MonoBehaviour
     void IncrementScore()
     {
         score++;
+
     }
+    
+    //void setRefrencedPlayer(PlayerScript player)
+    //{
+
+    //}
+    
     
     void SetScore(int newScore)
     {
