@@ -3,52 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/*
+ * The Scorer UI GameObject, which displays a player's current score
+ */
 public class ScorerUIScript : MonoBehaviour
 {
-    private TextMeshProUGUI scorerText;
-
-    private LevelController levelController;
-    // private PlayerScript playerScorring;
-    public int startingScore = 0;
-    private int score; // from LevelController
-    private string playerName; // from LevelController
+    private TextMeshProUGUI scorerText; // the text Component to update 
+    private PlayerScript playerRef; // the player reference to get a score from
+    private string playerName; // the player's name - this is saved to reduce how often we access data from the player
 
     void Start()
     {
+        // get the scorer text Component off this GameObject
         scorerText = GetComponent<TextMeshProUGUI>();
-        levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
-
-
-        SetScore(startingScore);
-        //score = playerScorring.getScore();
     }
 
     void Update()
     {
-        scorerText.text = playerName + ": " + score.ToString();
-        //playerScorring.SetScore(score);
+        UpdateText();
     }
 
-
-    void SetName(string newPlayerName)
+    public void UpdateText()
     {
-        playerName = newPlayerName;
+        // check that a player has actually been referenced, otherwise there isn't a score to show
+        if (playerRef != null)
+        {
+            scorerText.text = playerName + ": " + playerRef.GetScore().ToString();
+        }
     }
 
-    void IncrementScore()
+    void SetPlayerRef(PlayerScript player)
     {
-        score++;
+        // set the reference object
+        playerRef = player;
 
-    }
-    
-    //void setRefrencedPlayer(PlayerScript player)
-    //{
-
-    //}
-    
-    
-    void SetScore(int newScore)
-    {
-        score = newScore;
+        // set the player name
+        playerName = playerRef.name;
     }
 }

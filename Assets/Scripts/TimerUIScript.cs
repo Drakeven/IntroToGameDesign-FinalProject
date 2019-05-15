@@ -3,32 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/*
+ * The Timer UI GameObject, which displays the time until player swap
+ */
 public class TimerUIScript : MonoBehaviour
 {
-    public float startDelay = 0f;
-    public float repeatDelay = 1f;
+    private TextMeshProUGUI counterText; // the text Component to update
+    LevelController levelController; // the Level Controller of the level
 
-    private TextMeshProUGUI counterText;
-    public string timeUntilText = "Time To Swap: ";
-    private int startTime; // from LevelController
-    private int currentTime; // from LevelController
+    public string timeUntilText = "Time To Swap: "; // the base text of the counter
 
-    LevelController levelController;
+    public float startDelay = 0f; // delay until the update timer starts being called
+    public float repeatDelay = 1f; // delay between updating the text
 
     void Start()
     {
+        // get the counter text Component off this GameObject
         counterText = GetComponent<TextMeshProUGUI>();
+
+        // find the Level Controller in the scene
         levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
-        startTime = levelController.startTime;
-        currentTime = levelController.currentTime;
-        
+
+        // call the UpdateTimer function after startDelay, and repeatingly call it every repeatDelay seconds
         InvokeRepeating("UpdateTimer", startDelay, repeatDelay);
     }
 
-    // Update is called once per frame
     void UpdateTimer()
     {
-        currentTime = levelController.currentTime;
-        counterText.text = timeUntilText + currentTime.ToString();
+        // check that the level controller has been set (meaning that it exists in the current scene)
+        if (levelController != null)
+        {
+            // set the text to the base text and current time from the Level Controller
+            counterText.text = timeUntilText + levelController.GetCurrentTime().ToString();
+        }
     }
 }

@@ -479,7 +479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259ba6c97e63c244cad02af0afe22c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingScore: 0
 --- !u!114 &334408801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,7 +753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259ba6c97e63c244cad02af0afe22c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingScore: 0
 --- !u!114 &499256327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2557,6 +2555,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playerName
       value: Mister One
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705509734986738962, guid: b6413bea572d25445a96a56fdb547703,
+        type: 3}
+      propertyPath: facingRight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
