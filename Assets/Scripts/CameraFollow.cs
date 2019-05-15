@@ -58,10 +58,8 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         // apply screenshake on the camera
-        ScreenShake();
-
+        //ScreenShake();
     }
-
 
     void OnEnable()
     {
@@ -124,7 +122,6 @@ public class CameraFollow : MonoBehaviour
         {
             bounds.Encapsulate(targets[i].position);
         }
-
         return bounds.center;
     }
 
