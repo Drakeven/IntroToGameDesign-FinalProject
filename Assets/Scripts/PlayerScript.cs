@@ -27,8 +27,12 @@ public class PlayerScript : MonoBehaviour
     public int startingScore = 0; // the score that the player starts with
     public int score = 0; // the current score of the player
 
+    public Vector3 spawnPos;
+
     void Start()
     {
+        transform.position = spawnPos;
+
         // get the Rigidbody2D Component of this GameObject
         rb = GetComponent<Rigidbody2D>();
 
@@ -81,7 +85,8 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Move();
+        Move();
+        fallOff();
     }
 
     public void Move()
@@ -159,6 +164,14 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void fallOff()
+    {
+        if (transform.position.y <= -10)
+        {
+            resetPos();
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         CheckPlayerGrounded(collider);
@@ -172,5 +185,10 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D collider)
     {
         isGrounded = false;
+    }
+
+    void resetPos()
+    {
+        transform.position = spawnPos;
     }
 }

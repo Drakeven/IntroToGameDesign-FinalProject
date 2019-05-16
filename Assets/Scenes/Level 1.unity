@@ -614,12 +614,12 @@ PrefabInstance:
     - target: {fileID: 2705509734986738961, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.28
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738961, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.383
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738961, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
@@ -690,6 +690,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playerName
       value: 'Captain #2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705509734986738962, guid: b6413bea572d25445a96a56fdb547703,
+        type: 3}
+      propertyPath: spawnPos.y
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
@@ -2560,6 +2565,16 @@ PrefabInstance:
         type: 3}
       propertyPath: facingRight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705509734986738962, guid: b6413bea572d25445a96a56fdb547703,
+        type: 3}
+      propertyPath: spawnPos.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705509734986738962, guid: b6413bea572d25445a96a56fdb547703,
+        type: 3}
+      propertyPath: spawnPos.x
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
