@@ -121,7 +121,7 @@ public class PlayerScript : MonoBehaviour
     {
         float dir = -1.0f;
         if (!facingRight)
-            {
+        {
             dir = 1.0f;
         }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, dir * 1.61f);
@@ -187,6 +187,12 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         CheckPlayerGrounded(collider);
+
+
+        if (collider.CompareTag("Coin"))
+        {
+            Destroy(collider.gameObject);
+        }
     }
 
     void OnTriggerStay2D(Collider2D collider)
@@ -198,4 +204,5 @@ public class PlayerScript : MonoBehaviour
     {
         isGrounded = false;
     }
+
 }

@@ -10,6 +10,7 @@ TagManager:
   - UI
   - Scorer UI
   - Timer UI
+  - Coin
   layers:
   - Default
   - TransparentFX
