@@ -188,11 +188,16 @@ public class PlayerScript : MonoBehaviour
     {
         CheckPlayerGrounded(collider);
 
-
-        if (collider.CompareTag("Coin"))
+        if (collider.gameObject.tag == "Coin")
         {
-            Destroy(collider.gameObject);
+            {
+                AudioSource sound = collider.GetComponent<AudioSource>();
+                sound.Play();
+                Destroy(collider.gameObject);
+                score++;
+            }
         }
+
     }
 
     void OnTriggerStay2D(Collider2D collider)
