@@ -27,8 +27,12 @@ public class PlayerScript : MonoBehaviour
     public int startingScore = 0; // the score that the player starts with
     public int score = 0; // the current score of the player
 
+    public Vector3 spawnPos;
+
     void Start()
     {
+        ResetPos();
+
         // get the Rigidbody2D Component of this GameObject
         rb = GetComponent<Rigidbody2D>();
 
@@ -50,7 +54,7 @@ public class PlayerScript : MonoBehaviour
         myAnimator.SetFloat("Speed", Mathf.Abs(moveInput));
 
         // if the attack button is pressed, play the attack animation
-        if (Input.GetKeyDown(attackKey) && moveInput == 0)
+        if (Input.GetKeyDown(attackKey))
         {
             // play the Attack animation
             myAnimator.SetTrigger("Attack");
@@ -81,7 +85,8 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Move();
+        Move();
+        CheckFallOff();
     }
 
     public void Move()
@@ -101,25 +106,32 @@ public class PlayerScript : MonoBehaviour
         }
 
         // set the current rigidbody's velocity to a new speed, calculated by the direction * speed, keeping the old y velocity
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        rb.AddForce(new Vector2(moveInput * speed * 7f, rb.velocity.y));
+        //        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         // check if player has pressed the jump key, and can jump
         if (Input.GetKey(jumpKey) && isGrounded)
         {
-            rb.velocity = Vector2.up * jumpForce;
+            // rb.velocity = Vector2.up * jumpForce;
+            rb.AddForce(Vector2.up * jumpForce * 1200f);
         }
     }
 
     void PushOtherPlayer()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 2.11f);
-        if (hit.collider != null && hit.collider.name != this.name)
+        float dir = -1.0f;
+        if (!facingRight)
         {
-            Debug.Log(hit.collider.name);
-            hit.rigidbody.velocity = new Vector2(7f, 2f); // this breaks because the velocity is set in the Move() method. maybe change move to add to velocity?
+            dir = 1.0f;
+        }
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, dir * 1.61f);
+        if (hit.collider != null && hit.collider.name != this.name && hit.rigidbody != null)
+        {
+            //Debug.Log(hit.collider.name);
+            hit.rigidbody.AddForce(new Vector2(30000f * dir, 200f)); // this breaks because the velocity is set in the Move() method. maybe change move to add to velocity?
             // maaaybe: // hit.rigidbody.AddForceAtPosition(transform.forward * 300000f, hit.point);
         }
-        Debug.DrawRay(transform.position, Vector2.right * 2.11f, Color.red, 10f);
+        Debug.DrawRay(transform.position, Vector2.right * 1.61f * dir, Color.red, 10f);
     }
 
     public void SetName(string newName)
@@ -159,9 +171,33 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void CheckFallOff()
+    {
+        if (transform.position.y <= -10)
+        {
+            ResetPos();
+        }
+    }
+
+    void ResetPos()
+    {
+        transform.position = spawnPos;
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         CheckPlayerGrounded(collider);
+
+        if (collider.gameObject.tag == "Coin")
+        {
+            {
+                AudioSource sound = collider.GetComponent<AudioSource>();
+                sound.Play();
+                Destroy(collider.gameObject);
+                score++;
+            }
+        }
+
     }
 
     void OnTriggerStay2D(Collider2D collider)
@@ -173,4 +209,5 @@ public class PlayerScript : MonoBehaviour
     {
         isGrounded = false;
     }
+
 }

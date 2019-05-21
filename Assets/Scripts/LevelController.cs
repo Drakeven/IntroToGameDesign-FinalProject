@@ -49,7 +49,7 @@ public class LevelController : MonoBehaviour
         myAudio = GetComponent<AudioSource>();
 
         // set the current AudioClip to play
-        myAudio.clip = Resources.Load<AudioClip>("Audio/teleport3");
+        myAudio.clip = Resources.Load<AudioClip>("Audio/space_teleport");
 
         // call the SwapPlayers function after startDelay, and repeatingly call it every repeatDelay seconds
         InvokeRepeating("SwapPlayers", startDelay, repeatDelay);
@@ -95,12 +95,15 @@ public class LevelController : MonoBehaviour
             {
                 // get the location of the first player
                 Vector3 tempPlayerLocation = players[0].transform.position;
+                //Vector2 tempPlayerVelocity = players[0].GetComponent<Rigidbody2D>().velocity;
 
                 // set the location of the first player to that of the second's
                 players[0].transform.position = players[1].transform.position;
+                //players[0].GetComponent<Rigidbody2D>().velocity = players[1].GetComponent<Rigidbody2D>().velocity;
 
                 // set the second player's location to that of the first player's
                 players[1].transform.position = tempPlayerLocation;
+                //players[1].GetComponent<Rigidbody2D>().velocity = tempPlayerVelocity;
             }
             // else if there are more than one players in the scene
             else if (players.Length > 1)
@@ -125,12 +128,15 @@ public class LevelController : MonoBehaviour
 
                     // get the location of the random player
                     Vector3 tempPlayerLocation = players[rnd].transform.position;
+                    //Vector2 tempPlayerVelocity = players[rnd].GetComponent<Rigidbody2D>().velocity;
 
                     // set the location of the random player to that of the current's
                     players[rnd].transform.position = players[i].transform.position;
+                    //players[rnd].GetComponent<Rigidbody2D>().velocity = players[i].GetComponent<Rigidbody2D>().velocity;
 
                     // set the current player's location to that of the random's
                     players[i].transform.position = tempPlayerLocation;
+                    //players[i].GetComponent<Rigidbody2D>().velocity = tempPlayerVelocity;
                 }
             }
         }
