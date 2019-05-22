@@ -173,7 +173,7 @@ public class PlayerScript : MonoBehaviour
 
     void CheckFallOff()
     {
-        if (transform.position.y <= -10)
+        if (transform.position.y <= -50)
         {
             ResetPos();
         }
