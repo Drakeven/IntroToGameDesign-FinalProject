@@ -164,7 +164,7 @@ public class PlayerScript : MonoBehaviour
     public void CheckPlayerGrounded(Collider2D collider)
     {
         // check if the provided collider's is not an objective
-        if (collider.tag != "Objective")
+        if (collider.tag != "Objective" && collider.tag != "Coin")
         {
             // set the player is grounded
             isGrounded = true;
@@ -190,12 +190,11 @@ public class PlayerScript : MonoBehaviour
 
         if (collider.gameObject.tag == "Coin")
         {
-            {
+            
                 AudioSource sound = collider.GetComponent<AudioSource>();
                 sound.Play();
-                Destroy(collider.gameObject);
-                score++;
-            }
+                
+            
         }
 
     }
@@ -207,7 +206,11 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        isGrounded = false;
-    }
 
+
+        if (collider.gameObject.tag != "Coin")
+        {
+            isGrounded = false;
+        }
+    }
 }
