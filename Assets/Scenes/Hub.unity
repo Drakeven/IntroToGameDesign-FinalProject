@@ -1120,7 +1120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a495eb1b857c92c45a37eaf876b195f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Countdown: {fileID: 1367672526}
   interactKey: 61
+  cancelKey: 27
   ui: {fileID: 1349107159}
   level: Cointest
   player: {fileID: 787082559}
@@ -1241,7 +1243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a495eb1b857c92c45a37eaf876b195f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Countdown: {fileID: 1367672526}
   interactKey: 61
+  cancelKey: 27
   ui: {fileID: 1364886179}
   level: Level 4
   player: {fileID: 787082559}
@@ -1835,6 +1839,7 @@ RectTransform:
   - {fileID: 1349107160}
   - {fileID: 138330428}
   - {fileID: 1364886180}
+  - {fileID: 1027969367}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2109,6 +2114,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1027969364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1027969367}
+  - component: {fileID: 1027969366}
+  - component: {fileID: 1027969365}
+  m_Layer: 5
+  m_Name: Countdown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1027969365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027969364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1027969366
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027969364}
+  m_CullTransparentMesh: 0
+--- !u!224 &1027969367
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027969364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 907065574}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1076553769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,7 +2919,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a495eb1b857c92c45a37eaf876b195f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Countdown: {fileID: 1367672526}
   interactKey: 61
+  cancelKey: 27
   ui: {fileID: 1690211630}
   level: Level 1
   player: {fileID: 787082559}
@@ -3161,6 +3247,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364886179}
   m_CullTransparentMesh: 0
+--- !u!1 &1367672525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1367672527}
+  - component: {fileID: 1367672526}
+  m_Layer: 0
+  m_Name: TimerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1367672526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367672525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a549a40ed17654abdb95785949c957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoToLevel:
+  - {fileID: 1323650239}
+  - {fileID: 461337534}
+  - {fileID: 1551042669}
+  - {fileID: 763539009}
+  ui: {fileID: 1027969364}
+  uiText: {fileID: 1027969365}
+  mainTimer: 3.5
+--- !u!4 &1367672527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367672525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372856219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,7 +3629,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a495eb1b857c92c45a37eaf876b195f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Countdown: {fileID: 1367672526}
   interactKey: 61
+  cancelKey: 27
   ui: {fileID: 138330427}
   level: Level 3
   player: {fileID: 787082559}
