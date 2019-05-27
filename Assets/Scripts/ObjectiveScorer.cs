@@ -13,13 +13,14 @@ public class ObjectiveScorer : MonoBehaviour
     public Vector3 spawnPos2;
     public Vector3 spawnPos3;
     public Vector3 spawnPos4;
-    public int timer;
-    public int currentTime;
+
+    public int timer = 10000;
+    public int currentTime = 10000;
 
     void Start()
     {
 
-        
+
         // find the Level Controller in the scene
         levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
     }
@@ -28,7 +29,7 @@ public class ObjectiveScorer : MonoBehaviour
     {
         timerCount();
         objPos();
-        
+
     }
 
     public void AddScore(string scorerName)
@@ -70,24 +71,21 @@ public class ObjectiveScorer : MonoBehaviour
 
     void objPos()
     {
-        if (currentTime >= (timer / 2 + timer / 4)){
+        if (currentTime >= (timer / 2 + timer / 4))
+        {
             transform.position = spawnPos;
         }
         if (currentTime >= timer / 2 && currentTime < (timer / 2 + timer / 4))
         {
             transform.position = spawnPos2;
         }
-        if (currentTime >= timer/4 && currentTime < timer / 2)
+        if (currentTime >= timer / 4 && currentTime < timer / 2)
         {
             transform.position = spawnPos3;
-        } 
-        if (currentTime < timer/4)
+        }
+        if (currentTime < timer / 4)
         {
             transform.position = spawnPos4;
         }
     }
-   
-
-    }
-
-
+}

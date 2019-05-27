@@ -11,33 +11,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 5e0ca63fa8fc2c148905660fd497bac8
-  - enabled: 0
-    path: Assets/Scenes/Level 2.unity
-    guid: 7184b9ace900abe40b5ffe8776dfb96a
-  - enabled: 0
-    path: Assets/Scenes/Level 3.unity
-    guid: 21ed14612b58b3c4ebea424360c585a5
-  - enabled: 0
-    path: Assets/Scenes/Level 4.unity
-    guid: 8902510540ec44549814bae76fdffab2
-  - enabled: 0
-    path: Assets/Scenes/levelSelect.unity
-    guid: 8900918c14c293045a6682bb178258f4
-  - enabled: 0
-    path: Assets/Scenes/mainMenu.unity
-    guid: 147bbbde458bbd7489fdcf0490fb0739
-  - enabled: 0
-    path: Assets/Scenes/Settings.unity
-    guid: 2b527107eed363544afdcb164d8ddbd9
-  - enabled: 0
-    path: Assets/Scenes/Tutorial.unity
-    guid: d2b4feb75cc3cc6468652335accc57b9
-  - enabled: 1
     path: Assets/Scenes/Hub.unity
     guid: c67c515b8d9465b4883ad1d969213d6c
   - enabled: 1
     path: Assets/Scenes/Cointest.unity
     guid: 35306eaca484b724f80d7159e0da6aa6
+  - enabled: 1
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 7184b9ace900abe40b5ffe8776dfb96a
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 21ed14612b58b3c4ebea424360c585a5
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: 8902510540ec44549814bae76fdffab2
+  - enabled: 1
+    path: Assets/Scenes/levelSelect.unity
+    guid: 8900918c14c293045a6682bb178258f4
+  - enabled: 1
+    path: Assets/Scenes/mainMenu.unity
+    guid: 147bbbde458bbd7489fdcf0490fb0739
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 2b527107eed363544afdcb164d8ddbd9
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: d2b4feb75cc3cc6468652335accc57b9
   - enabled: 1
     path: Assets/Scenes/You Win!.unity
     guid: f04c7cf9a428d8c488657c936f10c6da
