@@ -171,6 +171,15 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    public void CheckForCoin(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Coin")
+        {
+            AudioSource sound = collider.GetComponent<AudioSource>();
+            sound.Play();
+        }
+    }
+
     void CheckFallOff()
     {
         if (transform.position.y <= -50)
@@ -187,16 +196,7 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         CheckPlayerGrounded(collider);
-
-        if (collider.gameObject.tag == "Coin")
-        {
-            
-                AudioSource sound = collider.GetComponent<AudioSource>();
-                sound.Play();
-                
-            
-        }
-
+        CheckForCoin(collider);
     }
 
     void OnTriggerStay2D(Collider2D collider)
@@ -206,8 +206,6 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-
-
         if (collider.gameObject.tag != "Coin")
         {
             isGrounded = false;

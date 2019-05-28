@@ -14,6 +14,8 @@ public class LevelController : MonoBehaviour
     public int startTime = 10; // the starting time to count down from, until swapping players
     public int currentTime; // the current time until swapping players
 
+    public int winningScore = 10;
+
     public float startDelay = 1f; // the time until the SwapPlayers method starts running
     public float repeatDelay = 1f; // the time between the SwapPlayers method being called
 
@@ -67,7 +69,16 @@ public class LevelController : MonoBehaviour
                 if (players[i].name == playerName)
                 {
                     // call the IncrementScore method on the player found
-                    players[i].SendMessage("IncrementScore");
+                    //players[i].SendMessage("IncrementScore");
+                    PlayerScript playerRef = players[i].GetComponent<PlayerScript>();
+                    if (playerRef.GetScore() <= winningScore)
+                    {
+                        playerRef.IncrementScore();
+                    }
+                    else
+                    {
+                        Time.timeScale = 0;
+                    }
                 }
             }
         }
