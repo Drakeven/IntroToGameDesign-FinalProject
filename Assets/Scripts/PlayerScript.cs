@@ -110,7 +110,7 @@ public class PlayerScript : MonoBehaviour
         //        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         // check if player has pressed the jump key, and can jump
-        if (Input.GetKey(jumpKey) && isGrounded)
+        if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             // rb.velocity = Vector2.up * jumpForce;
             rb.AddForce(Vector2.up * jumpForce * 1200f);
@@ -128,7 +128,7 @@ public class PlayerScript : MonoBehaviour
         if (hit.collider != null && hit.collider.name != this.name && hit.rigidbody != null)
         {
             //Debug.Log(hit.collider.name);
-            hit.rigidbody.AddForce(new Vector2(30000f * dir, 200f)); // this breaks because the velocity is set in the Move() method. maybe change move to add to velocity?
+            hit.rigidbody.AddForce(new Vector2(30000f * dir, 10000f)); // this breaks because the velocity is set in the Move() method. maybe change move to add to velocity?
             // maaaybe: // hit.rigidbody.AddForceAtPosition(transform.forward * 300000f, hit.point);
         }
         Debug.DrawRay(transform.position, Vector2.right * 1.61f * dir, Color.red, 10f);
@@ -164,7 +164,7 @@ public class PlayerScript : MonoBehaviour
     public void CheckPlayerGrounded(Collider2D collider)
     {
         // check if the provided collider's is not an objective
-        if (collider.tag != "Objective" && collider.tag != "Coin")
+        if (collider.tag != "Objective" && collider.tag != "Coin" && collider.tag != "Player")
         {
             // set the player is grounded
             isGrounded = true;
@@ -206,7 +206,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.gameObject.tag != "Coin")
+        if (collider.gameObject.tag != "Coin" && collider.gameObject.tag != "Player")
         {
             isGrounded = false;
         }
