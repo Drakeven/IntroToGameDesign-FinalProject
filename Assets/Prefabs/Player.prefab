@@ -126,6 +126,9 @@ MonoBehaviour:
   jumpForce: 15
   isGrounded: 0
   playerName: Player X
+  startingScore: 0
+  score: 0
+  spawnPos: {x: 0, y: 0, z: 0}
 --- !u!95 &2705509734986738965
 Animator:
   serializedVersion: 3
