@@ -17,10 +17,11 @@ public class ObjectiveScorer : MonoBehaviour
     public int timer = 10000;
     public int currentTime = 10000;
 
+    public int scoreCountTimer = 0;
+    public int scoreCountTimerMax = 120;
+
     void Start()
     {
-
-
         // find the Level Controller in the scene
         levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
     }
@@ -43,8 +44,13 @@ public class ObjectiveScorer : MonoBehaviour
         // check if the provided collider's is a player
         if (collider.tag == "Player")
         {
-            // call the AddScore method, passing the name of the player found
-            AddScore(collider.name);
+            if (scoreCountTimer >= scoreCountTimerMax)
+            {
+                // call the AddScore method, passing the name of the player found
+                AddScore(collider.name);
+                scoreCountTimer = 0;
+            }
+            scoreCountTimer++;
         }
     }
 

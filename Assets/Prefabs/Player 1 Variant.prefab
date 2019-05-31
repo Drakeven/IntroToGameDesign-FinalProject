@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2705509734986738975, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player 1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738961, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
@@ -85,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 2705509734986738962, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
       propertyPath: playerName
-      value: Mister One
+      value: Default Player Name
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738962, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
@@ -101,21 +101,6 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPos.x
       value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
-        type: 3}
-      propertyPath: ObjectColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
-        type: 3}
-      propertyPath: ObjectColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
-        type: 3}
-      propertyPath: ObjectColor.a
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738963, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}
@@ -136,6 +121,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AngularDrag
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
+        type: 3}
+      propertyPath: ObjectColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
+        type: 3}
+      propertyPath: ObjectColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705509734986738967, guid: b6413bea572d25445a96a56fdb547703,
+        type: 3}
+      propertyPath: ObjectColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2705509734986738974, guid: b6413bea572d25445a96a56fdb547703,
         type: 3}

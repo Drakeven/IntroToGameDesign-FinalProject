@@ -127,9 +127,15 @@ public class PlayerScript : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, dir * 1.61f);
         if (hit.collider != null && hit.collider.name != this.name && hit.rigidbody != null)
         {
-            //Debug.Log(hit.collider.name);
-            hit.rigidbody.AddForce(new Vector2(30000f * dir, 10000f)); // this breaks because the velocity is set in the Move() method. maybe change move to add to velocity?
-            // maaaybe: // hit.rigidbody.AddForceAtPosition(transform.forward * 300000f, hit.point);
+            if (hit.collider.name == "Foreground")
+            {
+                rb.AddForce(new Vector2(-30000f * dir, 10000f));
+            }
+            else
+            {
+                //Debug.Log(hit.collider.name);
+                hit.rigidbody.AddForce(new Vector2(30000f * dir, 10000f)); // this breaks because the velocity is set in the Move() method. maybe change move to add to velocity?
+            }
         }
         Debug.DrawRay(transform.position, Vector2.right * 1.61f * dir, Color.red, 10f);
     }
