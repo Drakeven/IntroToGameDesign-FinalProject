@@ -21,9 +21,9 @@ public class CameraFollow : MonoBehaviour
     public float zoomLimiter = 50f;  // the limited level of zoom of the camera
 
     private new Transform transform; // transform of the camera
-    private Vector3 initialPosition; // initial position of the camera
-    private float shakeMagnitude = 0.04f; // measure of magnitude for the shake
-    private float shakeDuration = 0f; // duration of the shake effect
+    public float shakeMagnitude = 0.9f; // measure of magnitude for the shake
+    public float shakeDuration = 0f; // duration of the shake effect
+    public float shakeDurationMax = 0.5f; // duration of the shake effect
     private float dampingSpeed = 0.4f; // how quickly the shake effect should stop
 
     void Start()
@@ -58,13 +58,7 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         // apply screenshake on the camera
-        //ScreenShake(); //disabled because it breaks camera movement
-    }
-
-    void OnEnable()
-    {
-        // set the inital position of the camera
-        initialPosition = transform.localPosition;
+        ScreenShake(); //disabled because it breaks camera movement
     }
 
     void LateUpdate()
@@ -130,14 +124,18 @@ public class CameraFollow : MonoBehaviour
         // if the current timer's time is 1 second left, add time to the shake duration
         if (levelController.currentTime <= 1)
         {
-            shakeDuration = 0.1f;
+            shakeDuration = shakeDurationMax;
         }
 
         // if there is time left in the screenshake's duration
         if (shakeDuration > 0)
         {
             // apply the shaking effect by moving the position of the camera
-            transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+            //transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+
+            Vector3 rotationAmount = Random.insideUnitSphere * shakeMagnitude;
+            rotationAmount.z = 0;
+            transform.localRotation = Quaternion.Euler(rotationAmount);
 
             // remove time from the duration left
             shakeDuration -= Time.deltaTime * dampingSpeed;
@@ -148,7 +146,7 @@ public class CameraFollow : MonoBehaviour
             shakeDuration = 0f;
 
             // reset the position of the camera
-            transform.localPosition = initialPosition;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

@@ -19,7 +19,6 @@ public class ScoreBarScript : MonoBehaviour
     void SetPlayerRef(PlayerScript player)
     {
         playerRef = player;
-        Debug.Log(player.name);
     }
 
     void SetMaxScore(int maxScore)

@@ -29,10 +29,9 @@ public class LevelController : MonoBehaviour
 
         // get all the player UI scorers in the scene at start
         playerUIScoreres = GameObject.FindGameObjectsWithTag("Scorer UI");
-        
 
+        // get all the player Score Bar UI objects at start
         playerUIScoreBars = GameObject.FindGameObjectsWithTag("Score Bar UI");
-        Debug.Log(playerUIScoreBars.Length);
 
         // check to see if there are the same number of players in scorers
         // a potential problem could be where we add the wrong number of one at startup
