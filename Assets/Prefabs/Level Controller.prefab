@@ -46,9 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   playerUIScoreres: []
+  playerUIScoreBars: []
   startTime: 7
   currentTime: 0
-  winningScore: 1000000
+  winningScore: 60
   startDelay: 1
   repeatDelay: 1
 --- !u!82 &3010255243405115540

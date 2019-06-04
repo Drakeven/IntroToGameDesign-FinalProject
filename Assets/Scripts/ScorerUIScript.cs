@@ -28,7 +28,7 @@ public class ScorerUIScript : MonoBehaviour
         // check that a player has actually been referenced, otherwise there isn't a score to show
         if (playerRef != null)
         {
-            scorerText.text = playerName + ": " + playerRef.GetScore().ToString();
+            scorerText.text = playerRef.GetName();//playerName + ": " + playerRef.GetScore().ToString();
         }
     }
 

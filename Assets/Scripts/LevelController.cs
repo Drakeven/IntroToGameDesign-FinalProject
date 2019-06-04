@@ -10,11 +10,12 @@ public class LevelController : MonoBehaviour
 {
     public GameObject[] players; // an array of all the players in the scene
     public GameObject[] playerUIScoreres; // an array of all the scorer UI's in the scene
+    public GameObject[] playerUIScoreBars; // an array of all the scorer UI's in the scene
 
     public int startTime = 10; // the starting time to count down from, until swapping players
     public int currentTime; // the current time until swapping players
 
-    public int winningScore = 10;
+    public int winningScore = 100000;
 
     public float startDelay = 1f; // the time until the SwapPlayers method starts running
     public float repeatDelay = 1f; // the time between the SwapPlayers method being called
@@ -28,6 +29,10 @@ public class LevelController : MonoBehaviour
 
         // get all the player UI scorers in the scene at start
         playerUIScoreres = GameObject.FindGameObjectsWithTag("Scorer UI");
+        
+
+        playerUIScoreBars = GameObject.FindGameObjectsWithTag("Score Bar UI");
+        Debug.Log(playerUIScoreBars.Length);
 
         // check to see if there are the same number of players in scorers
         // a potential problem could be where we add the wrong number of one at startup
@@ -38,6 +43,8 @@ public class LevelController : MonoBehaviour
             {
                 // set the player reference on each of the scorer UI's
                 playerUIScoreres[i].SendMessage("SetPlayerRef", players[i].GetComponent<PlayerScript>());
+                playerUIScoreBars[i].SendMessage("SetPlayerRef", players[i].GetComponent<PlayerScript>());
+                playerUIScoreBars[i].SendMessage("SetMaxScore", winningScore);
             }
         }
 

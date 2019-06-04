@@ -68,10 +68,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1991217423
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8eb0266742e74294183596d086b5d402, type: 3}
-  m_Color: {r: 0, g: 0.87080383, b: 1, a: 0.7647059}
+  m_Color: {r: 0, g: 0.654799, b: 1, a: 0.7647059}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   spawnPos4: {x: 0, y: -9, z: 0}
   timer: 40000
   currentTime: 40000
+  scoreCountTimer: 0
+  scoreCountTimerMax: 120
 --- !u!61 &1103006195117033851
 BoxCollider2D:
   m_ObjectHideFlags: 0

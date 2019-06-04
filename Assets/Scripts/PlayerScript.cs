@@ -149,6 +149,11 @@ public class PlayerScript : MonoBehaviour
         this.name = playerName;
     }
 
+    public string GetName()
+    {
+        return name;
+    }
+
     public void SetScore(int newScore)
     {
         // set the current score to a new score

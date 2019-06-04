@@ -11,6 +11,7 @@ TagManager:
   - Scorer UI
   - Timer UI
   - Coin
+  - Score Bar UI
   layers:
   - Default
   - TransparentFX
