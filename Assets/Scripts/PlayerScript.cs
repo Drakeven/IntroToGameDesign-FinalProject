@@ -19,6 +19,8 @@ public class PlayerScript : MonoBehaviour
     public bool isGrounded; // if the player is on a platform
     private bool facingRight; // if the player is facing right
 
+    public bool isInSpace = false;
+
     private Rigidbody2D rb; // the Rigidbody2D Component of the player
     private Animator myAnimator; // the Animator Component of the player
 
@@ -35,6 +37,8 @@ public class PlayerScript : MonoBehaviour
 
         // get the Rigidbody2D Component of this GameObject
         rb = GetComponent<Rigidbody2D>();
+
+        UpdateGravity();
 
         // get the Animator Component of this GameObject
         myAnimator = GetComponent<Animator>();
@@ -87,6 +91,7 @@ public class PlayerScript : MonoBehaviour
     {
         Move();
         CheckFallOff();
+        UpdateGravity();
     }
 
     public void Move()
@@ -114,6 +119,20 @@ public class PlayerScript : MonoBehaviour
         {
             // rb.velocity = Vector2.up * jumpForce;
             rb.AddForce(Vector2.up * jumpForce * 1200f);
+        }
+    }
+
+    void UpdateGravity()
+    {
+        if (isInSpace)
+        {
+            rb.angularDrag = 0.6f;
+            rb.gravityScale = 1f;
+        }
+        else
+        {
+            rb.angularDrag = 0.2f;
+            rb.gravityScale = 5f;
         }
     }
 
@@ -202,7 +221,7 @@ public class PlayerScript : MonoBehaviour
 
     void ResetPos()
     {
-        transform.position = spawnPos; 
+        transform.position = spawnPos;
     }
 
     public void Respawn()
