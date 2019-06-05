@@ -801,6 +801,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8846744309248694866, guid: 6011830a35f6d7f4ba5f41581855e88b,
+        type: 3}
+      propertyPath: targets.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8846744309248694868, guid: 6011830a35f6d7f4ba5f41581855e88b,
         type: 3}
       propertyPath: m_BackGroundColor.r
@@ -814,11 +819,6 @@ PrefabInstance:
     - target: {fileID: 8846744309248694868, guid: 6011830a35f6d7f4ba5f41581855e88b,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8846744309248694866, guid: 6011830a35f6d7f4ba5f41581855e88b,
-        type: 3}
-      propertyPath: targets.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -956,6 +956,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2560316560673574025, guid: 367dc662f32c9154591b8f50f8d11274,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2560316560673574024, guid: 367dc662f32c9154591b8f50f8d11274,
         type: 3}
       propertyPath: leftKey
@@ -991,6 +996,11 @@ PrefabInstance:
       propertyPath: playerName
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2560316560673574024, guid: 367dc662f32c9154591b8f50f8d11274,
+        type: 3}
+      propertyPath: isInSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2560316560673574028, guid: 367dc662f32c9154591b8f50f8d11274,
         type: 3}
       propertyPath: ObjectColor.r
@@ -1005,11 +1015,6 @@ PrefabInstance:
         type: 3}
       propertyPath: ObjectColor.b
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560316560673574025, guid: 367dc662f32c9154591b8f50f8d11274,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367dc662f32c9154591b8f50f8d11274, type: 3}
@@ -1278,6 +1283,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2560316560673574025, guid: 367dc662f32c9154591b8f50f8d11274,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560316560673574025, guid: 367dc662f32c9154591b8f50f8d11274,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2560316560673574024, guid: 367dc662f32c9154591b8f50f8d11274,
         type: 3}
       propertyPath: spawnPos.x
@@ -1298,15 +1313,10 @@ PrefabInstance:
       propertyPath: playerName
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2560316560673574025, guid: 367dc662f32c9154591b8f50f8d11274,
+    - target: {fileID: 2560316560673574024, guid: 367dc662f32c9154591b8f50f8d11274,
         type: 3}
-      propertyPath: m_GravityScale
+      propertyPath: isInSpace
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560316560673574025, guid: 367dc662f32c9154591b8f50f8d11274,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367dc662f32c9154591b8f50f8d11274, type: 3}

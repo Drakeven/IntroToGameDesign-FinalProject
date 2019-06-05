@@ -97,10 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: []
-  offset: {x: 0, y: 0, z: -1}
+  offset: {x: 0, y: 3, z: -1}
   velocity: {x: 0, y: 0, z: 0}
   smoothTime: 0.5
-  minZoom: 25
+  minZoom: 20
   maxZoom: 10
   zoomLimiter: 40
   shakeMagnitude: 3
