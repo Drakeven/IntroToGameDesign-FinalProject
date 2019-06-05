@@ -7,6 +7,7 @@ public class Lava : MonoBehaviour
 
     public GameObject player;
     public PlayerScript PlayerScript;
+    public LevelManager gameLevelManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
