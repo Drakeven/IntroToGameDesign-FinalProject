@@ -20,20 +20,24 @@ public class GoToLevel : MonoBehaviour
     {
         ui.SetActive(true); //text is displayed 
         if (Input.GetKeyDown(interactKey)) //if player interacts
-        {
+        { 
             if (!isCounting) //if the timer has not started
             {
+                //Countdown.ResetTimer();
+                //isCounting = false;
                 Countdown.TimerStart(); //start timer
                 isCounting = true;
             }
             //else
             //{
+                //Countdown.TimerStart(); //start timer
+                //isCounting = true;  
                 //Countdown.ResetTimer();
                 //isCounting = false;
             //}
         }
-        
-        if(Input.GetKeyDown(cancelKey) && isCounting) //filler until else statement is fixed
+
+        if (Input.GetKeyDown(cancelKey) && isCounting) //filler until else statement is fixed
         {
             Countdown.ResetTimer();
             isCounting = false;
