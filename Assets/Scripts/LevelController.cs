@@ -12,10 +12,10 @@ public class LevelController : MonoBehaviour
     public GameObject[] playerUIScoreres; // an array of all the scorer UI's in the scene
     public GameObject[] playerUIScoreBars; // an array of all the scorer UI's in the scene
 
-    public int startTime = 10; // the starting time to count down from, until swapping players
+    public int startTime = 7; // the starting time to count down from, until swapping players
     public int currentTime; // the current time until swapping players
 
-    public int winningScore = 100000;
+    public int winningScore = 240;
 
     public float startDelay = 1f; // the time until the SwapPlayers method starts running
     public float repeatDelay = 1f; // the time between the SwapPlayers method being called
