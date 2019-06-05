@@ -14,7 +14,7 @@ public class Teleport : MonoBehaviour
         //ui.SetActive(true);
         //if (Input.GetKeyDown(interactKey))
         //{
-            player.transform.position = teleportLocation.transform.position; //player position changes to teleportLocation positions
+            //player.transform.position = teleportLocation.transform.position; //player position changes to teleportLocation positions
         //}
     }
 
