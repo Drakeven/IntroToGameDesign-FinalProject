@@ -201,7 +201,20 @@ public class PlayerScript : MonoBehaviour
 
     void ResetPos()
     {
+        transform.position = spawnPos; 
+    }
+
+    public void Respawn()
+    {
+        StartCoroutine("ResetCoroutine");
+    }
+
+    public IEnumerator ResetCoroutine()
+    {
+        gameObject.SetActive(false);
+        yield return new WaitForSeconds(3);
         transform.position = spawnPos;
+        gameObject.SetActive(true);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
