@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Coinscript : MonoBehaviour
 {
-
     public Vector3[] coinpos;
-    
+
     int coinLoc = 0;
     System.Random rnd = new System.Random();
     AudioSource sound;
@@ -20,41 +17,24 @@ public class Coinscript : MonoBehaviour
         changeLoc(randomPos());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
 
         if (collider.gameObject.tag == "Player")
         {
-
-            
-            
             sound.Play();
 
-
             changeLoc(randomPos());
-
-
-
         }
-
     }
 
-    void changeLoc (int location)
+    void changeLoc(int location)
     {
         transform.position = coinpos[location];
-
     }
 
-    int randomPos ()
+    int randomPos()
     {
-        
         return rnd.Next(0, coinpos.Length);
-
     }
 }

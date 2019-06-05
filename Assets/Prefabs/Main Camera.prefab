@@ -99,10 +99,10 @@ MonoBehaviour:
   targets: []
   offset: {x: 0, y: 0, z: -1}
   velocity: {x: 0, y: 0, z: 0}
-  smoothTime: 1
-  minZoom: 15
-  maxZoom: 5
-  zoomLimiter: 30
+  smoothTime: 0.5
+  minZoom: 25
+  maxZoom: 10
+  zoomLimiter: 40
   shakeMagnitude: 3
   shakeDuration: 0
   shakeDurationMax: 0.05

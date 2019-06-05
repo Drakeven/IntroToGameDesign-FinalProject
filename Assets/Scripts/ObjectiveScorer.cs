@@ -14,8 +14,8 @@ public class ObjectiveScorer : MonoBehaviour
     public Vector3 spawnPos3;
     public Vector3 spawnPos4;
 
-    public int timer = 10000;
-    public int currentTime = 10000;
+    public int timer = 40000;
+    public int currentTime = 40000;
 
     public int scoreCountTimer = 0;
     public int scoreCountTimerMax = 120;

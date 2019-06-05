@@ -12,8 +12,8 @@ public class PlayerScript : MonoBehaviour
     public KeyCode jumpKey; // the jump input key
     public KeyCode attackKey; // the attack input key
 
-    public float speed = 5f; // the movement speed
-    public float jumpForce = 15f; // the force to apply when jumping
+    public float speed = 7f; // the movement speed
+    public float jumpForce = 20f; // the force to apply when jumping
     private float moveInput = 0; // the direction represented as an int
 
     public bool isGrounded; // if the player is on a platform
