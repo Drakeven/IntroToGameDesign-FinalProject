@@ -3238,7 +3238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1015478244}
   - component: {fileID: 1015478243}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: colored_shroom (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3795,7 +3795,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1395646404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background?
   m_TagString: Untagged
   m_Icon: {fileID: 0}
