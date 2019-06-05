@@ -179,6 +179,7 @@ public class PlayerScript : MonoBehaviour
         {
             // set the player is grounded
             isGrounded = true;
+            myAnimator.SetBool("Isgrounded", true);
         }
     }
 
@@ -233,6 +234,7 @@ public class PlayerScript : MonoBehaviour
         if (collider.gameObject.tag != "Coin" && collider.gameObject.tag != "Player")
         {
             isGrounded = false;
+            myAnimator.SetBool("Isgrounded", false);
         }
     }
 }
