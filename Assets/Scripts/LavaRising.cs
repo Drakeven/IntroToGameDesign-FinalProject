@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LavaRising : MonoBehaviour
 {
-
     public Transform lava;
     public Transform startingPos;
     public Transform lowRise;
@@ -27,24 +26,24 @@ public class LavaRising : MonoBehaviour
 
     void ChangePos()
     {
-        if(currentState == "ToStartPos")
+        if (currentState == "ToStartPos")
         {
             currentState = RandomRise();
-            if(currentState == "ToLowRise")
+            if (currentState == "ToLowRise")
             {
                 newPos = lowRise.position;
             }
-            else if(currentState == "ToHighRise")
+            else if (currentState == "ToHighRise")
             {
                 newPos = highRise.position;
             }
         }
-        else if(currentState == "ToLowRise" || currentState == "ToHighRise")
+        else if (currentState == "ToLowRise" || currentState == "ToHighRise")
         {
             currentState = "ToStartPos";
             newPos = startingPos.position;
         }
-        else if(currentState == "")
+        else if (currentState == "")
         {
             currentState = "ToLowRise";
             newPos = lowRise.position;
@@ -62,7 +61,7 @@ public class LavaRising : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entered"); 
+        Debug.Log("Entered");
         player.SetActive(false);
     }
 

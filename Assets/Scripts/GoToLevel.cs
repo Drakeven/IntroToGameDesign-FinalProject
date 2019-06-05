@@ -20,7 +20,7 @@ public class GoToLevel : MonoBehaviour
     {
         ui.SetActive(true); //text is displayed 
         if (Input.GetKeyDown(interactKey)) //if player interacts
-        { 
+        {
             if (!isCounting) //if the timer has not started
             {
                 //Countdown.ResetTimer();
@@ -30,10 +30,10 @@ public class GoToLevel : MonoBehaviour
             }
             //else
             //{
-                //Countdown.TimerStart(); //start timer
-                //isCounting = true;  
-                //Countdown.ResetTimer();
-                //isCounting = false;
+            //Countdown.TimerStart(); //start timer
+            //isCounting = true;  
+            //Countdown.ResetTimer();
+            //isCounting = false;
             //}
         }
 
@@ -52,7 +52,7 @@ public class GoToLevel : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision) //when player leaves trigger
     {
         ui.SetActive(false); //text is hidden
-        isCounting = false; 
+        isCounting = false;
         Countdown.ResetTimer(); //resets the timer
     }
 

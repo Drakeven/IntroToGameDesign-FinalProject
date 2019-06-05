@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
-
     public void LevelSelect()
     {
         SceneManager.LoadScene("levelSelect");
@@ -51,5 +50,4 @@ public class ButtonHandler : MonoBehaviour
     {
         SceneManager.LoadScene("mainMenu");
     }
-
 }

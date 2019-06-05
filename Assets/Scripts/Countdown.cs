@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Countdown : MonoBehaviour
 {
-    public GoToLevel [] GoToLevel; //array for each level's script
+    public GoToLevel[] GoToLevel; //array for each level's script
 
     public GameObject ui; //countdown ui
 
@@ -32,7 +32,7 @@ public class Countdown : MonoBehaviour
 
         else if (timer <= 0.51f && !isFinished) //if the timer is finished
         {
-            stillRunning = false; 
+            stillRunning = false;
             isFinished = true;
             uiText.text = "Good Luck!";
             timer = 0.0f;

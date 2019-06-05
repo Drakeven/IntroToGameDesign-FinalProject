@@ -33,6 +33,6 @@ public class ScoreBarScript : MonoBehaviour
 
     public void UpdateScoreBar()
     {
-        scoreBar.fillAmount = (float) playerRef.GetScore() / (float) winScore;
+        scoreBar.fillAmount = (float)playerRef.GetScore() / (float)winScore;
     }
 }
