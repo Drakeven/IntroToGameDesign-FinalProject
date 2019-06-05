@@ -12,6 +12,7 @@ TagManager:
   - Timer UI
   - Coin
   - Score Bar UI
+  - Lava
   layers:
   - Default
   - TransparentFX

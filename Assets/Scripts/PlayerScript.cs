@@ -194,7 +194,7 @@ public class PlayerScript : MonoBehaviour
     public void CheckPlayerGrounded(Collider2D collider)
     {
         // check if the provided collider's is not an objective
-        if (collider.tag != "Objective" && collider.tag != "Coin" && collider.tag != "Player")
+        if (collider.tag != "Objective" && collider.tag != "Coin" && collider.tag != "Player" && collider.tag != "Player")
         {
             // set the player is grounded
             isGrounded = true;

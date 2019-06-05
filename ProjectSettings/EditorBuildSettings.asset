@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Level_1.unity
     guid: 5e0ca63fa8fc2c148905660fd497bac8
-    path: Assets/Scenes/Hub.unity
-    guid: c67c515b8d9465b4883ad1d969213d6c
   - enabled: 1
     path: Assets/Scenes/Cointest.unity
     guid: 35306eaca484b724f80d7159e0da6aa6
   - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 7184b9ace900abe40b5ffe8776dfb96a

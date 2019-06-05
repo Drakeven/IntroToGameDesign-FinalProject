@@ -49,7 +49,7 @@ MonoBehaviour:
   playerUIScoreBars: []
   startTime: 7
   currentTime: 0
-  winningScore: 60
+  winningScore: 240
   startDelay: 1
   repeatDelay: 1
 --- !u!82 &3010255243405115540
