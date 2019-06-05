@@ -22,6 +22,8 @@ public class LevelController : MonoBehaviour
 
     private AudioSource myAudio; // the AudioSource Component to play Audio from
 
+    public bool isSwapping = true;
+
     void Start()
     {
         // get all the players in the scene at start
@@ -58,7 +60,7 @@ public class LevelController : MonoBehaviour
 
         // set the current AudioClip to play
         myAudio.clip = Resources.Load<AudioClip>("Audio/space_teleport");
-
+        
         // call the SwapPlayers function after startDelay, and repeatingly call it every repeatDelay seconds
         InvokeRepeating("SwapPlayers", startDelay, repeatDelay);
     }
@@ -92,6 +94,11 @@ public class LevelController : MonoBehaviour
 
     void SwapPlayers()
     {
+        if (!isSwapping)
+        {
+            return;
+        }
+
         // decrement the current time
         currentTime--;
 
