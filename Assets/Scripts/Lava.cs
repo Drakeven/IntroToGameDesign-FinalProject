@@ -5,15 +5,22 @@ using UnityEngine;
 public class Lava : MonoBehaviour
 {
 
-    public GameObject player;
-    public PlayerScript PlayerScript;
+    public GameObject player1;
+    public GameObject player2;
+    public PlayerScript PlayerScript1;
+    public PlayerScript PlayerScript2;
     public LevelManager gameLevelManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //player.SetActive(false);
-        PlayerScript.Respawn();
-        //player.SetActive(true);
+        if (collision.gameObject == player1)
+        {
+            PlayerScript1.ResetPos();
+        }
+        else if (collision.gameObject == player2)
+        {
+            PlayerScript2.ResetPos();
+        }
     }
 
 }

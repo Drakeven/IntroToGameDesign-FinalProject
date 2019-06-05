@@ -219,7 +219,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void ResetPos()
+    public void ResetPos()
     {
         transform.position = spawnPos;
     }
