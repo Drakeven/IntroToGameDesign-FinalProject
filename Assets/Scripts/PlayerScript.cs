@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     public KeyCode rightKey; // the right movement input key
     public KeyCode jumpKey; // the jump input key
     public KeyCode attackKey; // the attack input key
+    AudioSource shoot;
 
     public float speed = 7f; // the movement speed
     public float jumpForce = 20f; // the force to apply when jumping
@@ -36,6 +37,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         ResetPos();
+        shoot = GetComponent<AudioSource>(); 
 
         // get the Rigidbody2D Component of this GameObject
         rb = GetComponent<Rigidbody2D>();
@@ -63,6 +65,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(attackKey))
         {
             // play the Attack animation
+            shoot.Play();
             myAnimator.SetTrigger("Attack");
 
             // push the other player
