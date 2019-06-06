@@ -49,6 +49,11 @@ public class PlayerScript : MonoBehaviour
         this.name = playerName;
     }
 
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
+
     void Update()
     {
         UpdateAnimation();
