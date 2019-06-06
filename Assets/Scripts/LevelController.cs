@@ -157,7 +157,7 @@ public class LevelController : MonoBehaviour
         return currentTime;
     }
 
-    void InitiateSwap()
+    public void InitiateSwap()
     {
         // todo: this can probably be optimised into just one if statement, so we don't check for 2 players
 
