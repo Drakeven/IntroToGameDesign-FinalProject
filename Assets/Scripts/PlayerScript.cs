@@ -235,6 +235,7 @@ public class PlayerScript : MonoBehaviour
     {
         CheckPlayerGrounded(collider);
         CheckForCoin(collider);
+        CheckGravity(collider);
     }
 
     void CheckGravity(Collider2D collider)
@@ -243,6 +244,10 @@ public class PlayerScript : MonoBehaviour
         if (collider.tag == "GravArea")
         {
             isInSpace = true;
+        }
+        else if (collider.tag == "GravAreaExit")
+        {
+            isInSpace = false;
         }
     }
 
