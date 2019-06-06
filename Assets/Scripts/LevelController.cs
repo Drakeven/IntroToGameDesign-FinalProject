@@ -5,14 +5,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /*
- * The Level Controller of a level 
- * This holds and connects the core functionality of all levels 
+ * The Level Controller of a level
+ * This holds and connects the core functionality of all levels
  */
 public class LevelController : MonoBehaviour
 {
     public GameObject[] players; // an array of all the players in the scene
     public GameObject[] playerUIScoreres; // an array of all the scorer UI's in the scene
     public GameObject[] playerUIScoreBars; // an array of all the scorer UI's in the scene
+
+    public GameObject coin;
 
     public int startTime = 7; // the starting time to count down from, until swapping players
     public int currentTime; // the current time until swapping players
@@ -36,6 +38,8 @@ public class LevelController : MonoBehaviour
 
         // get all the players in the scene at start
         players = GameObject.FindGameObjectsWithTag("Player");
+
+        coin = GameObject.FindGameObjectWithTag("Coin");
 
         // get all the player UI scorers in the scene at start
         playerUIScoreres = GameObject.FindGameObjectsWithTag("Scorer UI");
@@ -68,10 +72,24 @@ public class LevelController : MonoBehaviour
 
         // set the current AudioClip to play
         myAudio.clip = Resources.Load<AudioClip>("Audio/space_teleport");
-        
+
         // call the SwapPlayers function after startDelay, and repeatingly call it every repeatDelay seconds
         InvokeRepeating("SwapPlayers", startDelay, repeatDelay);
+
+
     }
+
+
+    void coinSwap()
+    {
+        Coinscript coinRef = coin.GetComponent<Coinscript>();
+        if (coinRef.getcoinUp() == true)
+        {
+            innitiateSwap();
+            coinRef.setcoinUp(false);
+        }
+    }
+
 
     void IncreaseScore(string playerName)
     {
@@ -95,7 +113,7 @@ public class LevelController : MonoBehaviour
                     {
                         Time.timeScale = 0;
                         StartCoroutine(delay());
-                        
+
                     }
                 }
             }
@@ -128,57 +146,7 @@ public class LevelController : MonoBehaviour
         // if there are no seconds left on the timer, and there are players in the scene
         if (currentTime == 0 && players != null)
         {
-            // todo: this can probably be optimised into just one if statement, so we don't check for 2 players
-
-            // if there are only two players 
-            if (players.Length == 2)
-            {
-                // get the location of the first player
-                Vector3 tempPlayerLocation = players[0].transform.position;
-                //Vector2 tempPlayerVelocity = players[0].GetComponent<Rigidbody2D>().velocity;
-
-                // set the location of the first player to that of the second's
-                players[0].transform.position = players[1].transform.position;
-                //players[0].GetComponent<Rigidbody2D>().velocity = players[1].GetComponent<Rigidbody2D>().velocity;
-
-                // set the second player's location to that of the first player's
-                players[1].transform.position = tempPlayerLocation;
-                //players[1].GetComponent<Rigidbody2D>().velocity = tempPlayerVelocity;
-            }
-            // else if there are more than one players in the scene
-            else if (players.Length > 1)
-            {
-                // loop through all of the player GameObjects
-                for (int i = 0; i < players.Length; i++)
-                {
-                    // todo: make players not end up in the same position after all the swaps take place
-                    // currently, it can swap from 1 -> 2, then 2 -> 3, then 3 -> 1
-                    // this looks like you haven't moved at all, but you just moved back to your original position
-                    // this isn't a problem while we are only testing with 2 players
-
-
-                    // get a random index within the range of total number of players
-                    int rnd = Random.Range(0, players.Length);
-
-                    // get another random index if the random number was the same as the index of the current player
-                    while (rnd == i)
-                    {
-                        rnd = Random.Range(0, players.Length);
-                    }
-
-                    // get the location of the random player
-                    Vector3 tempPlayerLocation = players[rnd].transform.position;
-                    //Vector2 tempPlayerVelocity = players[rnd].GetComponent<Rigidbody2D>().velocity;
-
-                    // set the location of the random player to that of the current's
-                    players[rnd].transform.position = players[i].transform.position;
-                    //players[rnd].GetComponent<Rigidbody2D>().velocity = players[i].GetComponent<Rigidbody2D>().velocity;
-
-                    // set the current player's location to that of the random's
-                    players[i].transform.position = tempPlayerLocation;
-                    //players[i].GetComponent<Rigidbody2D>().velocity = tempPlayerVelocity;
-                }
-            }
+            innitiateSwap();
         }
 
         // if the current time is under the minimum time
@@ -193,6 +161,61 @@ public class LevelController : MonoBehaviour
     {
         // return the current time of the timer
         return currentTime;
+    }
+
+    void innitiateSwap()
+    {
+        // todo: this can probably be optimised into just one if statement, so we don't check for 2 players
+
+        // if there are only two players
+        if (players.Length == 2)
+        {
+            // get the location of the first player
+            Vector3 tempPlayerLocation = players[0].transform.position;
+            //Vector2 tempPlayerVelocity = players[0].GetComponent<Rigidbody2D>().velocity;
+
+            // set the location of the first player to that of the second's
+            players[0].transform.position = players[1].transform.position;
+            //players[0].GetComponent<Rigidbody2D>().velocity = players[1].GetComponent<Rigidbody2D>().velocity;
+
+            // set the second player's location to that of the first player's
+            players[1].transform.position = tempPlayerLocation;
+            //players[1].GetComponent<Rigidbody2D>().velocity = tempPlayerVelocity;
+        }
+        // else if there are more than one players in the scene
+        else if (players.Length > 1)
+        {
+            // loop through all of the player GameObjects
+            for (int i = 0; i < players.Length; i++)
+            {
+                // todo: make players not end up in the same position after all the swaps take place
+                // currently, it can swap from 1 -> 2, then 2 -> 3, then 3 -> 1
+                // this looks like you haven't moved at all, but you just moved back to your original position
+                // this isn't a problem while we are only testing with 2 players
+
+
+                // get a random index within the range of total number of players
+                int rnd = Random.Range(0, players.Length);
+
+                // get another random index if the random number was the same as the index of the current player
+                while (rnd == i)
+                {
+                    rnd = Random.Range(0, players.Length);
+                }
+
+                // get the location of the random player
+                Vector3 tempPlayerLocation = players[rnd].transform.position;
+                //Vector2 tempPlayerVelocity = players[rnd].GetComponent<Rigidbody2D>().velocity;
+
+                // set the location of the random player to that of the current's
+                players[rnd].transform.position = players[i].transform.position;
+                //players[rnd].GetComponent<Rigidbody2D>().velocity = players[i].GetComponent<Rigidbody2D>().velocity;
+
+                // set the current player's location to that of the random's
+                players[i].transform.position = tempPlayerLocation;
+                //players[i].GetComponent<Rigidbody2D>().velocity = tempPlayerVelocity;
+            }
+        }
     }
 
     public void Respawn()
