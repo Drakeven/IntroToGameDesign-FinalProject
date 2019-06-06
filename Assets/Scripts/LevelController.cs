@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /*
  * The Level Controller of a level 
@@ -24,8 +26,14 @@ public class LevelController : MonoBehaviour
 
     public bool isSwapping = true;
 
+    public PlayerScript gamePlayer1;
+    public PlayerScript gamePlayer2;
+    public Vector3 spawnPos1;
+    public Vector3 spawnPos2;
+
     void Start()
     {
+
         // get all the players in the scene at start
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -86,10 +94,18 @@ public class LevelController : MonoBehaviour
                     else
                     {
                         Time.timeScale = 0;
+                        StartCoroutine(delay());
+                        
                     }
                 }
             }
         }
+    }
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        SceneManager.LoadScene("You Win!");
     }
 
     void SwapPlayers()
@@ -178,4 +194,18 @@ public class LevelController : MonoBehaviour
         // return the current time of the timer
         return currentTime;
     }
+
+    public void Respawn()
+    {
+        StartCoroutine(ResetCoroutine());
+    }
+
+    IEnumerator ResetCoroutine()
+    {
+        gamePlayer1.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(3);
+        gamePlayer1.transform.position = spawnPos1;
+        gamePlayer1.gameObject.SetActive(true);
+    }
+
 }

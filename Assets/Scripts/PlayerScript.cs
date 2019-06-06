@@ -31,6 +31,8 @@ public class PlayerScript : MonoBehaviour
 
     public Vector3 spawnPos;
 
+    public LevelController levelController;
+
     void Start()
     {
         ResetPos();
@@ -226,15 +228,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Respawn()
     {
-        StartCoroutine("ResetCoroutine");
-    }
-
-    public IEnumerator ResetCoroutine()
-    {
-        gameObject.SetActive(false);
-        yield return new WaitForSeconds(3);
-        transform.position = spawnPos;
-        gameObject.SetActive(true);
+        levelController.Respawn();
     }
 
     void OnTriggerEnter2D(Collider2D collider)

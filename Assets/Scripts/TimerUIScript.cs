@@ -37,4 +37,4 @@ public class TimerUIScript : MonoBehaviour
             counterText.text = timeUntilText + levelController.GetCurrentTime().ToString();
         }
     }
-}
+    }
