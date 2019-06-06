@@ -9,22 +9,29 @@ public class Coinscript : MonoBehaviour
     int coinLoc = 0;
     System.Random rnd = new System.Random();
     AudioSource sound;
+    LevelController levelController; // the Level Controller of the level
 
     // Start is called before the first frame update
     void Start()
     {
         sound = GetComponent<AudioSource>();
         changeLoc(randomPos());
+
+        // find the Level Controller in the scene
+        levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-
         if (collider.gameObject.tag == "Player")
         {
             sound.Play();
             coinUp = true;
             changeLoc(randomPos());
+            if (levelController != null)
+            {
+                levelController.InitiateSwap();
+            }
         }
     }
 
@@ -38,12 +45,12 @@ public class Coinscript : MonoBehaviour
         return coinUp;
     }
 
-    void changeLoc(int location)
+    public void changeLoc(int location)
     {
         transform.position = coinpos[location];
     }
 
-    int randomPos()
+    public int randomPos()
     {
         return rnd.Next(0, coinpos.Length);
     }

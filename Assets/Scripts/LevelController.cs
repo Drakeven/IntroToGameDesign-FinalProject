@@ -35,7 +35,6 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
-
         // get all the players in the scene at start
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -75,21 +74,17 @@ public class LevelController : MonoBehaviour
 
         // call the SwapPlayers function after startDelay, and repeatingly call it every repeatDelay seconds
         InvokeRepeating("SwapPlayers", startDelay, repeatDelay);
-
-
     }
 
-
-    void coinSwap()
-    {
-        Coinscript coinRef = coin.GetComponent<Coinscript>();
-        if (coinRef.getcoinUp() == true)
-        {
-            innitiateSwap();
-            coinRef.setcoinUp(false);
-        }
-    }
-
+    //void coinSwap()
+    //{
+    //    Coinscript coinRef = coin.GetComponent<Coinscript>();
+    //    if (coinRef.getcoinUp() == true)
+    //    {
+    //        innitiateSwap();
+    //        coinRef.setcoinUp(false);
+    //    }
+    //}
 
     void IncreaseScore(string playerName)
     {
@@ -113,7 +108,6 @@ public class LevelController : MonoBehaviour
                     {
                         Time.timeScale = 0;
                         StartCoroutine(delay());
-
                     }
                 }
             }
@@ -146,7 +140,7 @@ public class LevelController : MonoBehaviour
         // if there are no seconds left on the timer, and there are players in the scene
         if (currentTime == 0 && players != null)
         {
-            innitiateSwap();
+            InitiateSwap();
         }
 
         // if the current time is under the minimum time
@@ -163,7 +157,7 @@ public class LevelController : MonoBehaviour
         return currentTime;
     }
 
-    void innitiateSwap()
+    void InitiateSwap()
     {
         // todo: this can probably be optimised into just one if statement, so we don't check for 2 players
 
