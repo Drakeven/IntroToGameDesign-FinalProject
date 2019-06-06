@@ -1,43 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ButtonHandler : MonoBehaviour
 {
-    public void LevelSelect()
+    public void LevelHub()
     {
-        SceneManager.LoadScene("levelSelect");
+        Debug.Log("hub");
+        SceneManager.LoadScene("Level_Hub-Tutorial");
     }
 
     public void LevelOne()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level_1");
     }
 
     public void LevelTwo()
     {
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene("Level_2");
     }
 
     public void LevelThree()
     {
-        SceneManager.LoadScene("Level 3");
+        SceneManager.LoadScene("Level_3");
     }
 
     public void LevelFour()
     {
-        SceneManager.LoadScene("Level 4");
-    }
-
-    public void Tutorial()
-    {
-        SceneManager.LoadScene("Tutorial");
-    }
-
-    public void Settings()
-    {
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene("Level_4");
     }
 
     public void Quit()
@@ -48,6 +41,6 @@ public class ButtonHandler : MonoBehaviour
 
     public void Back()
     {
-        SceneManager.LoadScene("mainMenu");
+        SceneManager.LoadScene("Level_Hub-Tutorial");
     }
 }
