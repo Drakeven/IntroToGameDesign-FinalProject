@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
  * The script that controls each player
@@ -53,7 +54,11 @@ public class PlayerScript : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name != "Level_Hub-Tutorial" && scene.name != "You Win!")
+        {
+            DontDestroyOnLoad(transform.gameObject);
+        }
     }
 
     void Update()
@@ -144,6 +149,12 @@ public class PlayerScript : MonoBehaviour
             rb.angularDrag = 0.2f;
             rb.gravityScale = 5f;
         }
+    }
+
+    void SetNewColor(Color newColor)
+    {
+        // set the GameObject's material colour to that of a new colour
+        gameObject.GetComponent<Renderer>().material.color = newColor;
     }
 
     void PushOtherPlayer()

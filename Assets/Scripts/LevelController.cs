@@ -14,6 +14,9 @@ public class LevelController : MonoBehaviour
     public GameObject[] playerUIScoreres; // an array of all the scorer UI's in the scene
     public GameObject[] playerUIScoreBars; // an array of all the scorer UI's in the scene
 
+
+    public Color[] ObjectColors = new Color[] { new Color(70, 255, 59, 255), new Color(0, 242, 255, 255) }; // a white colour
+
     public GameObject coin;
 
     public int startTime = 7; // the starting time to count down from, until swapping players
@@ -55,8 +58,10 @@ public class LevelController : MonoBehaviour
             {
                 // set the player reference on each of the scorer UI's
                 playerUIScoreres[i].SendMessage("SetPlayerRef", players[i].GetComponent<PlayerScript>());
-                playerUIScoreBars[i].SendMessage("SetPlayerRef", players[i].GetComponent<PlayerScript>());
                 playerUIScoreBars[i].SendMessage("SetMaxScore", winningScore);
+                playerUIScoreBars[i].SendMessage("SetPlayerRef", players[i].GetComponent<PlayerScript>());
+                //players[i].SendMessage("SetNewColor", ObjectColors[i]);
+                //playerUIScoreBars[i].SendMessage("SetNewColor", ObjectColors[i]);
             }
         }
 
