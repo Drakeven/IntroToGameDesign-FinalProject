@@ -106,7 +106,7 @@ public class LevelController : MonoBehaviour
                     }
                     else
                     {
-                        Time.timeScale = 0;
+                        //Time.timeScale = 0.2f;
                         StartCoroutine(delay());
                     }
                 }
@@ -117,6 +117,9 @@ public class LevelController : MonoBehaviour
     IEnumerator delay()
     {
         yield return new WaitForSecondsRealtime(1);
+
+        // save data here
+
         SceneManager.LoadScene("You Win!");
     }
 
@@ -224,5 +227,4 @@ public class LevelController : MonoBehaviour
         gamePlayer1.transform.position = spawnPos1;
         gamePlayer1.gameObject.SetActive(true);
     }
-
 }

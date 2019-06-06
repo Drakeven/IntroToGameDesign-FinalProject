@@ -9,7 +9,6 @@ public class ButtonHandler : MonoBehaviour
 {
     public void LevelHub()
     {
-        Debug.Log("hub");
         SceneManager.LoadScene("Level_Hub-Tutorial");
     }
 

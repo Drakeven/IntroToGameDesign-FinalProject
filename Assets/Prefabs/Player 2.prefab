@@ -127,10 +127,11 @@ MonoBehaviour:
   jumpForce: 20
   isGrounded: 0
   isInSpace: 0
-  playerName: 'Captain #2'
+  playerName: Dr Diode
   startingScore: 0
   score: 0
   spawnPos: {x: 10, y: 3, z: 0}
+  levelController: {fileID: 0}
 --- !u!95 &4551008450982354275
 Animator:
   serializedVersion: 3

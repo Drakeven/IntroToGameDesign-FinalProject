@@ -127,10 +127,11 @@ MonoBehaviour:
   jumpForce: 20
   isGrounded: 0
   isInSpace: 0
-  playerName: Mister One
+  playerName: Professor Proton
   startingScore: 0
   score: 0
   spawnPos: {x: -10, y: 3, z: 0}
+  levelController: {fileID: 0}
 --- !u!95 &2560316560673574027
 Animator:
   serializedVersion: 3
