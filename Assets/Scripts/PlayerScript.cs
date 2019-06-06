@@ -65,9 +65,9 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(attackKey))
         {
             // play the Attack animation
-            shoot.Play();
+            
             myAnimator.SetTrigger("Attack");
-
+            shoot.Play();
             // push the other player
             PushOtherPlayer();
         }
