@@ -236,8 +236,16 @@ public class PlayerScript : MonoBehaviour
         CheckPlayerGrounded(collider);
         CheckForCoin(collider);
         CheckGravity(collider);
+        CheckTeleporter(collider);
     }
 
+    public void CheckTeleporter(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Teleporter")
+        {
+            transform.position = spawnPos;
+        }
+    }
     void CheckGravity(Collider2D collider)
     {
         // check if the provided collider's is not an objective
