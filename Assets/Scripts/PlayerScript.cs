@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     public KeyCode rightKey; // the right movement input key
     public KeyCode jumpKey; // the jump input key
     public KeyCode attackKey; // the attack input key
+    AudioSource shoot;
 
     public float speed = 7f; // the movement speed
     public float jumpForce = 20f; // the force to apply when jumping
@@ -36,6 +37,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         ResetPos();
+        shoot = GetComponent<AudioSource>(); 
 
         // get the Rigidbody2D Component of this GameObject
         rb = GetComponent<Rigidbody2D>();
@@ -47,6 +49,11 @@ public class PlayerScript : MonoBehaviour
 
         // set the GameObject's name to that of the player's
         this.name = playerName;
+    }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
     }
 
     void Update()
@@ -63,8 +70,9 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(attackKey))
         {
             // play the Attack animation
+            
             myAnimator.SetTrigger("Attack");
-
+            shoot.Play();
             // push the other player
             PushOtherPlayer();
         }
@@ -236,8 +244,16 @@ public class PlayerScript : MonoBehaviour
         CheckPlayerGrounded(collider);
         CheckForCoin(collider);
         CheckGravity(collider);
+        CheckTeleporter(collider);
     }
 
+    public void CheckTeleporter(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Teleporter")
+        {
+            transform.position = spawnPos;
+        }
+    }
     void CheckGravity(Collider2D collider)
     {
         // check if the provided collider's is not an objective

@@ -46,6 +46,7 @@ public class ObjectiveScorer : MonoBehaviour
         {
             if (scoreCountTimer >= scoreCountTimerMax)
             {
+                //Debug.Log(collider.name);
                 // call the AddScore method, passing the name of the player found
                 AddScore(collider.name);
                 scoreCountTimer = 0;
