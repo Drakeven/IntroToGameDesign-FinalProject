@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4adbef90909af4a90f2e3a1718e7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectColor: {r: 0, g: 1, b: 0, a: 1}
+  ObjectColor: {r: 0.27635965, g: 1, b: 0.23113209, a: 1}
 --- !u!58 &4959158502081610810
 CircleCollider2D:
   m_ObjectHideFlags: 0
