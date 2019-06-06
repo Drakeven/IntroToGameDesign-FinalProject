@@ -237,6 +237,15 @@ public class PlayerScript : MonoBehaviour
         CheckForCoin(collider);
     }
 
+    void CheckGravity(Collider2D collider)
+    {
+        // check if the provided collider's is not an objective
+        if (collider.tag == "GravArea")
+        {
+            isInSpace = true;
+        }
+    }
+
     void OnTriggerStay2D(Collider2D collider)
     {
         CheckPlayerGrounded(collider);

@@ -13,6 +13,7 @@ TagManager:
   - Coin
   - Score Bar UI
   - Lava
+  - GravArea
   layers:
   - Default
   - TransparentFX
