@@ -15,6 +15,7 @@ TagManager:
   - Lava
   - GravArea
   - GravAreaExit
+  - Teleporter
   layers:
   - Default
   - TransparentFX
