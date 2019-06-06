@@ -5,7 +5,7 @@ using UnityEngine;
 public class Coinscript : MonoBehaviour
 {
     public Vector3[] coinpos;
-
+    bool coinUp = false;
     int coinLoc = 0;
     System.Random rnd = new System.Random();
     AudioSource sound;
@@ -23,9 +23,19 @@ public class Coinscript : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             sound.Play();
-
+            coinUp = true;
             changeLoc(randomPos());
         }
+    }
+
+    public void setcoinUp(bool setter)
+    {
+        coinUp = setter;
+    }
+
+    public bool getcoinUp()
+    {
+        return coinUp;
     }
 
     void changeLoc(int location)
