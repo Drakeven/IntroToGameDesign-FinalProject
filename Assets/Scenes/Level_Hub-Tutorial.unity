@@ -292,6 +292,16 @@ PrefabInstance:
       propertyPath: coinpos.Array.data[1].y
       value: -35.81387
       objectReference: {fileID: 0}
+    - target: {fileID: 2143287428742925081, guid: 411ebfee8c1718040a1c44fecc2cde8c,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2139543919
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143287428742925081, guid: 411ebfee8c1718040a1c44fecc2cde8c,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 411ebfee8c1718040a1c44fecc2cde8c, type: 3}
 --- !u!1 &246723215
