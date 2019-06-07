@@ -91,6 +91,26 @@ public class LevelController : MonoBehaviour
     //    }
     //}
 
+        void Update()
+    {
+        if (Input.GetKey(KeyCode.Keypad1))
+        {
+            SceneManager.LoadScene("Level_1");
+        }
+        if (Input.GetKey(KeyCode.Keypad2))
+        {
+            SceneManager.LoadScene("Level_2");
+        }
+        if (Input.GetKey(KeyCode.Keypad3))
+        {
+            SceneManager.LoadScene("Level_3");
+        }
+        if (Input.GetKey(KeyCode.Keypad4))
+        {
+            SceneManager.LoadScene("Level_4");
+        }
+    }
+
     void IncreaseScore(string playerName)
     {
         // check if there are actually players in the scene
