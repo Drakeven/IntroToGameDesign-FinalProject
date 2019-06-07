@@ -13,6 +13,7 @@ public class ObjectiveScorer : MonoBehaviour
     public Vector3 spawnPos2;
     public Vector3 spawnPos3;
     public Vector3 spawnPos4;
+    public Vector3 spawnPos5;
 
     public int timer = 40000;
     public int currentTime = 40000;
@@ -63,6 +64,10 @@ public class ObjectiveScorer : MonoBehaviour
         if (currentTime < timer / 4)
         {
             transform.position = spawnPos4;
+        }
+        if (currentTime < timer / 6)
+        {
+            transform.position = spawnPos5;
         }
     }
 }
