@@ -21,7 +21,7 @@ public class GoToLevel : MonoBehaviour
         //ui.SetActive(true); //text is displayed 
         if (Input.GetKeyDown(interactKey)) //if player interacts
         {
-            SceneManager.LoadScene("")
+            //SceneManager.LoadScene("")
             if (!isCounting) //if the timer has not started
             {
                 //Countdown.ResetTimer();
