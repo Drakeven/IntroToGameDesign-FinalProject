@@ -55,9 +55,14 @@ public class PlayerScript : MonoBehaviour
     void Awake()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name != "Level_Hub-Tutorial" && scene.name != "You Win!")
+        if (scene.name == "Level_1" || scene.name == "Level_2" || scene.name == "Level_3" || scene.name == "Level_4")
         {
             DontDestroyOnLoad(transform.gameObject);
+        }
+        else if (scene.name == "You Win!")
+        {
+            this.gameObject.SetActive(false);
+           // Object.Destroy(this.gameObject);
         }
     }
 
