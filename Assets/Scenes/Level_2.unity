@@ -120,6 +120,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &73806974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 801250722343516245, guid: a6fc79f6dd1cebd4a8ce3832d77cc5b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 616888934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &73806979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73806974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4adbef90909af4a90f2e3a1718e7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectColor: {r: 255, g: 255, b: 255, a: 255}
 --- !u!1001 &459627877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -381,6 +400,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 801250722343516245, guid: a6fc79f6dd1cebd4a8ce3832d77cc5b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6fc79f6dd1cebd4a8ce3832d77cc5b7, type: 3}
 --- !u!1001 &670628062
@@ -414,6 +438,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: ObjectColors.Array.data[0].r
+      value: 131.2592
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: ObjectColors.Array.data[0].g
+      value: 328.1481
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: ObjectColors.Array.data[0].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: ObjectColors.Array.data[0].a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fad84b32d2ee734888a4ed446ccb137, type: 3}
@@ -696,8 +740,37 @@ PrefabInstance:
       propertyPath: isInSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4551008450982354274, guid: 6dff2db0e04299e41aa5a112fbae54a2,
+        type: 3}
+      propertyPath: attackKey
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551008450982354206, guid: 6dff2db0e04299e41aa5a112fbae54a2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dff2db0e04299e41aa5a112fbae54a2, type: 3}
+--- !u!1 &1936767259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 801250721350995085, guid: a6fc79f6dd1cebd4a8ce3832d77cc5b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 616888934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1936767264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936767259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4adbef90909af4a90f2e3a1718e7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectColor: {r: 255, g: 255, b: 255, a: 255}
 --- !u!1001 &1944994747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -769,6 +842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isInSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560316560673574028, guid: 367dc662f32c9154591b8f50f8d11274,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367dc662f32c9154591b8f50f8d11274, type: 3}

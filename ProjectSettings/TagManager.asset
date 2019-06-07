@@ -16,6 +16,8 @@ TagManager:
   - GravArea
   - GravAreaExit
   - Teleporter
+  - Win UI
+  - Lose UI
   layers:
   - Default
   - TransparentFX

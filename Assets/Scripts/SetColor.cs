@@ -12,7 +12,7 @@ public class SetColor : MonoBehaviour
     void Start()
     {
         // set the GameObject's material colour to that of the ObjectColor variable
-        gameObject.GetComponent<Renderer>().material.color = ObjectColor;
+        //gameObject.GetComponent<Renderer>().material.color = ObjectColor;
     }
 
     void SetNewColor(Color newColor)

@@ -18,14 +18,15 @@ public class GoToLevel : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other) //while the player is in the trigger
     {
-        ui.SetActive(true); //text is displayed 
+        //ui.SetActive(true); //text is displayed 
         if (Input.GetKeyDown(interactKey)) //if player interacts
         {
+            //SceneManager.LoadScene("")
             if (!isCounting) //if the timer has not started
             {
                 //Countdown.ResetTimer();
                 //isCounting = false;
-                Countdown.TimerStart(); //start timer
+                //Countdown.TimerStart(); //start timer
                 isCounting = true;
             }
             //else
@@ -51,7 +52,7 @@ public class GoToLevel : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision) //when player leaves trigger
     {
-        ui.SetActive(false); //text is hidden
+        //ui.SetActive(false); //text is hidden
         isCounting = false;
         Countdown.ResetTimer(); //resets the timer
     }
