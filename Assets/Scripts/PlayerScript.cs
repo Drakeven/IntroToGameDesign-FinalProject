@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 /*
  * The script that controls each player
@@ -57,20 +58,39 @@ public class PlayerScript : MonoBehaviour
 
         // set the GameObject's name to that of the player's
         this.name = playerName;
+
+        //RemoveFromScene();
     }
 
     void Awake()
     {
         Scene scene = SceneManager.GetActiveScene();
+        Debug.Log(scene.name);
         if (scene.name == "Level_1" || scene.name == "Level_2" || scene.name == "Level_3" || scene.name == "Level_4")
         {
             DontDestroyOnLoad(transform.gameObject);
         }
         else if (scene.name == "You Win!")
         {
-            this.gameObject.SetActive(false);
-            // Object.Destroy(this.gameObject);
+            Invoke("RemoveFromScene", 1f);
         }
+
+        SceneManager.sceneLoaded += this.OnLoadCallback;
+    }
+
+    void OnLoadCallback(Scene scene, LoadSceneMode sceneMode)
+    {
+        if (scene.name == "You Win!")
+        {
+            Invoke("RemoveFromScene", 1f);
+        }
+    }
+
+    void RemoveFromScene()
+    {
+        gameObject.SetActive(false);
+        Destroy(gameObject, 1f);
+        Debug.Log("dead");
     }
 
     void Update()
