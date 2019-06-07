@@ -1113,7 +1113,7 @@ PrefabInstance:
     - target: {fileID: 2448926632339912435, guid: 20394a752b712c94c831449a53546732,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.5
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 2448926632484783999, guid: 20394a752b712c94c831449a53546732,
         type: 3}
@@ -1158,6 +1158,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: winnerUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: gamePlayer1
+      value: 
+      objectReference: {fileID: 1793187905}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: gamePlayer2
+      value: 
+      objectReference: {fileID: 111628162}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: spawnPos1.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
+        type: 3}
+      propertyPath: spawnPos1.y
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3010255243405115543, guid: 1fad84b32d2ee734888a4ed446ccb137,
         type: 3}
@@ -1213,36 +1243,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
-        type: 3}
-      propertyPath: ui
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
-        type: 3}
-      propertyPath: winnerUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
-        type: 3}
-      propertyPath: gamePlayer1
-      value: 
-      objectReference: {fileID: 1793187905}
-    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
-        type: 3}
-      propertyPath: gamePlayer2
-      value: 
-      objectReference: {fileID: 111628162}
-    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
-        type: 3}
-      propertyPath: spawnPos1.x
-      value: -8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010255243405115542, guid: 1fad84b32d2ee734888a4ed446ccb137,
-        type: 3}
-      propertyPath: spawnPos1.y
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fad84b32d2ee734888a4ed446ccb137, type: 3}
