@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Level_Hub-Tutorial.unity
+    guid: c6a1e4667aa204c4dae4256ac061c36a
+  - enabled: 1
     path: Assets/Scenes/Level_1.unity
     guid: 5e0ca63fa8fc2c148905660fd497bac8
   - enabled: 1
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_4.unity
     guid: c436b39ddd886e54e9301f626d757689
-  - enabled: 1
-    path: Assets/Scenes/Level_Hub-Tutorial.unity
-    guid: c6a1e4667aa204c4dae4256ac061c36a
   - enabled: 1
     path: Assets/Scenes/You Win!.unity
     guid: f04c7cf9a428d8c488657c936f10c6da
