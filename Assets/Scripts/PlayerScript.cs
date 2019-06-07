@@ -35,15 +35,22 @@ public class PlayerScript : MonoBehaviour
 
     public LevelController levelController;
 
+    public int scoreCountTimer = 0;
+    public int scoreCountTimerMax = 120;
+
+
     void Start()
     {
         ResetPos();
-        shoot = GetComponent<AudioSource>(); 
+        shoot = GetComponent<AudioSource>();
 
         // get the Rigidbody2D Component of this GameObject
         rb = GetComponent<Rigidbody2D>();
 
         UpdateGravity();
+
+        // find the Level Controller in the scene
+        levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
 
         // get the Animator Component of this GameObject
         myAnimator = GetComponent<Animator>();
@@ -55,9 +62,14 @@ public class PlayerScript : MonoBehaviour
     void Awake()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name != "Level_Hub-Tutorial" && scene.name != "You Win!")
+        if (scene.name == "Level_1" || scene.name == "Level_2" || scene.name == "Level_3" || scene.name == "Level_4")
         {
             DontDestroyOnLoad(transform.gameObject);
+        }
+        else if (scene.name == "You Win!")
+        {
+            this.gameObject.SetActive(false);
+            // Object.Destroy(this.gameObject);
         }
     }
 
@@ -75,7 +87,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(attackKey))
         {
             // play the Attack animation
-            
+
             myAnimator.SetTrigger("Attack");
             shoot.Play();
             // push the other player
@@ -256,6 +268,21 @@ public class PlayerScript : MonoBehaviour
         CheckForCoin(collider);
         CheckGravity(collider);
         CheckTeleporter(collider);
+        CheckScorerCollision(collider);
+    }
+
+    public void CheckScorerCollision(Collider2D collider)
+    {
+        // check if the provided collider's is a player
+        if (collider.tag == "Objective")
+        {
+            if (scoreCountTimer >= scoreCountTimerMax)
+            {
+                levelController.SendMessage("IncreaseScore", playerName);
+                scoreCountTimer = 0;
+            }
+            scoreCountTimer++;
+        }
     }
 
     public void CheckTeleporter(Collider2D collider)
@@ -265,6 +292,7 @@ public class PlayerScript : MonoBehaviour
             transform.position = spawnPos;
         }
     }
+
     void CheckGravity(Collider2D collider)
     {
         // check if the provided collider's is not an objective
@@ -280,6 +308,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
+        CheckScorerCollision(collider);
         CheckPlayerGrounded(collider);
     }
 

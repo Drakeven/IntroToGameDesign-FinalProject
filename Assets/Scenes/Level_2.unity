@@ -680,6 +680,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4551008450982354274, guid: 6dff2db0e04299e41aa5a112fbae54a2,
+        type: 3}
+      propertyPath: isInSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551008450982354274, guid: 6dff2db0e04299e41aa5a112fbae54a2,
+        type: 3}
+      propertyPath: attackKey
+      value: 108
+      objectReference: {fileID: 0}
     - target: {fileID: 4551008449795728830, guid: 6dff2db0e04299e41aa5a112fbae54a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -792,6 +802,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560316560673574024, guid: 367dc662f32c9154591b8f50f8d11274,
+        type: 3}
+      propertyPath: isInSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560316560673574024, guid: 367dc662f32c9154591b8f50f8d11274,
+        type: 3}
+      propertyPath: spawnPos.x
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2560316561337258045, guid: 367dc662f32c9154591b8f50f8d11274,
         type: 3}

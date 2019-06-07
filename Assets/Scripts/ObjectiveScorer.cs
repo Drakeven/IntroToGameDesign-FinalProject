@@ -17,8 +17,6 @@ public class ObjectiveScorer : MonoBehaviour
     public int timer = 40000;
     public int currentTime = 40000;
 
-    public int scoreCountTimer = 0;
-    public int scoreCountTimerMax = 120;
 
     void Start()
     {
@@ -37,34 +35,6 @@ public class ObjectiveScorer : MonoBehaviour
     {
         // call the IncreaseScore method on the level controller
         levelController.SendMessage("IncreaseScore", scorerName);
-    }
-
-    public void CheckPlayerCollision(Collider2D collider)
-    {
-        // check if the provided collider's is a player
-        if (collider.tag == "Player")
-        {
-            if (scoreCountTimer >= scoreCountTimerMax)
-            {
-                //Debug.Log(collider.name);
-                // call the AddScore method, passing the name of the player found
-                AddScore(collider.name);
-                scoreCountTimer = 0;
-            }
-            scoreCountTimer++;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        // check the collision of the collided object
-        CheckPlayerCollision(collider);
-    }
-
-    void OnTriggerStay2D(Collider2D collider)
-    {
-        // check the collision of the collided object
-        CheckPlayerCollision(collider);
     }
 
     void timerCount()

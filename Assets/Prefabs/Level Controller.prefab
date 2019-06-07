@@ -47,11 +47,20 @@ MonoBehaviour:
   players: []
   playerUIScoreres: []
   playerUIScoreBars: []
-  startTime: 7
+  ObjectColors:
+  - {r: 70, g: 255, b: 59, a: 255}
+  - {r: 0, g: 242, b: 255, a: 255}
+  coin: {fileID: 0}
+  startTime: 12
   currentTime: 0
   winningScore: 240
   startDelay: 1
   repeatDelay: 1
+  isSwapping: 1
+  gamePlayer1: {fileID: 0}
+  gamePlayer2: {fileID: 0}
+  spawnPos1: {x: 0, y: 0, z: 0}
+  spawnPos2: {x: 0, y: 0, z: 0}
 --- !u!82 &3010255243405115540
 AudioSource:
   m_ObjectHideFlags: 0

@@ -123,7 +123,7 @@ MonoBehaviour:
   leftKey: 276
   rightKey: 275
   jumpKey: 273
-  attackKey: 304
+  attackKey: 305
   speed: 7
   jumpForce: 20
   isGrounded: 0
